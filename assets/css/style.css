@@ -60,6 +60,19 @@ body {
   margin: 0.25rem 0 0.5rem;
   color: #f3e6bf;
 }
+.post-card h2 a,
+.post h1 a {
+  color: var(--accent);
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.35);
+}
+.post-card h2 a:hover,
+.post-card h2 a:focus,
+.post h1 a:hover,
+.post h1 a:focus {
+  color: #ffe166;
+  text-decoration: none;
+}
 .post h2 {
   color: #e9d09b;
   font-size: 1.1rem;
