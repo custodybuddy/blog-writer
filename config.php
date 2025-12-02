@@ -1,9 +1,6 @@
 <?php
 // Database Configuration
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'u123456789_custody_blog');
-define('DB_USER', 'u123456789_custody_user');
-define('DB_PASS', 'your_strong_password_here');
+define('DB_PATH', __DIR__ . '/data/blog.db');
 
 // API Keys
 define('CLAUDE_API_KEY', 'sk-ant-your-key-here');

@@ -11,10 +11,16 @@ function get_db(): PDO {
         if (!is_dir($dir)) {
             mkdir($dir, 0775, true);
         }
-        $pdo = new PDO('sqlite:' . DB_PATH);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $pdo->exec('PRAGMA foreign_keys = ON;');
-        initialize_schema($pdo);
+
+        try {
+            $pdo = new PDO('sqlite:' . DB_PATH);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pdo->exec('PRAGMA foreign_keys = ON;');
+            initialize_schema($pdo);
+        } catch (PDOException $e) {
+            error_log('Database connection failed: ' . $e->getMessage());
+            throw new RuntimeException('Unable to connect to the SQLite database. Please check DB_PATH and file permissions.');
+        }
     }
     return $pdo;
 }
