@@ -1,0 +1,20 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Set the base directory for deployments under a subdirectory
+# Update this path to match the directory you deploy to (e.g., /family-law-blog/)
+RewriteBase /family-law-blog/
+
+# Allow direct access to existing files and directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Preserve access to assets without rewriting
+RewriteRule ^assets/ - [L]
+
+# Route the site root to the main controller
+RewriteRule ^$ index.php [L]
+
+# Route post slugs to the post controller
+RewriteRule ^post/([^/]+)/?$ post.php?slug=$1 [L,QSA]
