@@ -6,7 +6,7 @@ define('SITE_PATH', '/family-law-blog/');
 define('TIMEZONE', 'America/New_York'); // Adjust to your timezone
 
 // Database Configuration (SQLite path; ensure directory is writable)
-define('DB_PATH', __DIR__ . '/data/blog.sqlite');
+define('DB_PATH', __DIR__ . '/database/blog.db');
 
 // API Keys
 define('CLAUDE_API_KEY', 'sk-ant-your-key-here');

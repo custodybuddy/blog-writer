@@ -6,18 +6,19 @@ This repository contains a minimal, mobile-first PHP blog that auto-creates post
 - Daily (or 5-minute test) post generation via `cron.php` secured by a secret token.
 - Topics bootstrapped from `topics.json` on first run.
 - Lightweight mobile-friendly layout inspired by calm, readable blogs.
-- Posts include short summaries, validation-first intros, action steps, and recommended reading links.
+- Posts include validation-first intros, 800–1200 word guidance, action steps, scripts, and Amazon affiliate book links.
 
 ## Quick start
 1. Copy `config.sample.php` to `config.php` and adjust:
-   - `DB_PATH` (default: `data/blog.db`)
+   - `DB_PATH` (default: `database/blog.db`)
    - `BASE_URL` (e.g., `https://example.com/family-law-blog/`)
    - `CRON_SECRET_TOKEN` (generate a 32-character value)
    - `SITE_NAME` and `TIMEZONE`
-2. Ensure the `data/` directory exists (created automatically on first run).
+2. Ensure the `database/` directory exists (created automatically on first run) and is writable (755 for the folder, 644 or 666 for `blog.db`).
 3. Serve the app with PHP (example: `php -S localhost:8000 -t .`).
 4. Open the homepage: `BASE_URL`.
 5. Trigger a post: visit `BASE_URL/cron.php?token=YOUR_TOKEN`.
+6. To initialize locally without cron, run `php init-db.php`.
 
 ## File overview
 - `index.php` — homepage listing recent posts.
@@ -32,4 +33,4 @@ This repository contains a minimal, mobile-first PHP blog that auto-creates post
 ## Notes
 - Content generation uses deterministic scaffolding in `includes/functions.php`. Swap the `generate_content` logic to call an external model like Claude when credentials are available.
 - If topics run out, add more to `topics.json` or reset the `topics` table.
-- This prototype favors simplicity over advanced routing; URLs use query parameters for compatibility with shared hosting.
+- Clean URLs are enabled via `.htaccess` (e.g., `/post/your-slug`), while `post.php?slug=` continues to work if rewriting is disabled.

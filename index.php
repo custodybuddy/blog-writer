@@ -18,9 +18,9 @@ include __DIR__ . '/includes/header.php';
         <?php foreach ($posts as $post): ?>
             <article class="post-card">
                 <p class="date"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></p>
-                <h2><a href="<?php echo BASE_URL . 'post.php?slug=' . urlencode($post['slug']); ?>"><?php echo htmlspecialchars($post['title']); ?></a></h2>
+                <h2><a href="<?php echo BASE_URL . 'post/' . urlencode($post['slug']); ?>"><?php echo htmlspecialchars($post['title']); ?></a></h2>
                 <p><?php echo htmlspecialchars($post['summary']); ?></p>
-                <a class="read-more" href="<?php echo BASE_URL . 'post.php?slug=' . urlencode($post['slug']); ?>">Read full post</a>
+                <a class="read-more" href="<?php echo BASE_URL . 'post/' . urlencode($post['slug']); ?>">Read full post</a>
             </article>
         <?php endforeach; ?>
     <?php endif; ?>
