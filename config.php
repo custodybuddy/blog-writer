@@ -7,7 +7,7 @@ define('DB_PASS', 'your_strong_password_here');
 
 // API Keys
 define('CLAUDE_API_KEY', 'sk-ant-your-key-here');
-define('AMAZON_AFFILIATE_ID', 'custodybuddy-20');
+define('AMAZON_AFFILIATE_ID', 'custodybudd0c-20');
 
 // Security
 define('CRON_SECRET_TOKEN', 'A7F3kP9XQ2mD6R8bEJZNYw4UHaC5LTSV');
