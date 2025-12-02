@@ -10,7 +10,7 @@ This repository contains a minimal, mobile-first PHP blog that auto-creates post
 
 ## Quick start
 1. Copy `config.sample.php` to `config.php` and adjust:
-   - `DB_PATH` (default: `database/blog.db`)
+   - `DB_PATH` (default: `database/blog.db` resolved to an absolute path via `dirname(__FILE__)`)
    - `BASE_URL` (e.g., `https://example.com/family-law-blog/`)
    - `CRON_SECRET_TOKEN` (generate a 32-character value)
    - `SITE_NAME` and `TIMEZONE`
