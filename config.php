@@ -10,7 +10,7 @@ define('CLAUDE_API_KEY', 'sk-ant-your-key-here');
 define('AMAZON_AFFILIATE_ID', 'custodybuddy-20');
 
 // Security
-define('CRON_SECRET_TOKEN', 'your_32_hex_character_token');
+define('CRON_SECRET_TOKEN', 'A7F3kP9XQ2mD6R8bEJZNYw4UHaC5LTSV');
 
 // Site Configuration
 define('BASE_URL', 'https://custodybuddy.com/family-law-blog/');
