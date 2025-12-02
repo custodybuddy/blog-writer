@@ -1,69 +1,39 @@
-Self-Writing Blog Instructions: High-Conflict Co-Parenting & Family Law
-Complete Process for Automated Co-Parenting Support Blog
+Phase 1: Strategic Foundation (Unchanged)
+Your 10 pre-researched topics are perfect. Skip to Phase 2.
 
-Phase 1: Strategic Foundation & Content Planning
-Step 1: Understanding Your Content Sweet Spot
-Your Niche Advantage:
-High-conflict co-parenting, parallel parenting, and family law navigation is an ideal topic for AI-generated content because:
+Phase 2: Technical Setup - Hostinger Specific
+Step 1: Gather Required Accounts
+You need:
 
-Established frameworks exist: Grey rock method, parallel parenting, BIFF communication (Brief, Informative, Friendly, Firm) have been documented for 10+ years
-Deep training data: Family court procedures, custody concepts, and co-parenting strategies are well-represented in legal guides, psychology research, and parenting literature
-Evergreen challenges: The core problems (communication breakdowns, documentation, boundary-setting) remain consistent over time
-Strong affiliate opportunities: Books on high-conflict divorce, co-parenting workbooks, legal guides, therapy resources
-Emotional resonance: Your audience is highly engaged and actively seeking solutions
+✅ Hostinger account (you have this)
+✅ Domain configured (custodybuddy.com - you have this)
+✅ Claude Console account (console.anthropic.com)
+✅ Amazon Associates account
+⚠️ GitHub (optional but highly recommended for backups)
 
-Key Principles Applied:
-
-✅ Focus on established psychological and legal frameworks (5+ years old)
-✅ Avoid rapidly changing state-specific laws (use general principles instead)
-✅ Leverage rich training data on custody psychology, conflict resolution, family systems
-✅ Create "deep well effect" with synthesis of therapy, legal, and parenting wisdom
-
-Step 2: Research Real User Problems (Already Done!)
-Your Pre-Researched Topics:
-You've already completed the Notebook LM research phase with your 10 topics covering:
-
-Practical challenges: Schedule violations, last-minute changes
-Communication strategies: Grey rock, BIFF responses, parallel parenting
-Documentation: FU binders, evidence logs, court-ready records
-Emotional survival: Nervous system regulation, setting boundaries
-Child protection: Supporting kids stuck in the middle
-Legal navigation: Working with lawyers, understanding court limitations
-Strategic mindset: Justice gap, pattern recognition
-
-These topics represent the exact frustrations your audience experiences, drawn from real co-parenting support forums and high-conflict divorce communities.
-Step 3: Connect to Established Frameworks
-Your Topics Already Map to Proven Methodologies:
-Your TopicEstablished FrameworkTraining Data DepthGrey RockingGrey Rock Method (2012+)✅ ExtensiveParallel ParentingParallel Parenting Model (1990s+)✅ ExtensiveFU BinderLegal Documentation Standards✅ ExtensiveBIFF CommunicationBIFF Method by Bill Eddy✅ Well-documentedEmotional RegulationPolyvagal Theory, Trauma Response✅ Deep researchCourt DocumentationFamily Law Evidence Standards✅ EstablishedChild-Centered SupportDevelopmental Psychology✅ Robust
-No additional research needed - your topics are perfectly positioned in the AI's training data sweet spot.
-
-Phase 2: Technical Setup & Accounts
-Step 4: Gather Required Accounts
-Create accounts at:
-
-✅ Cursor (cursor.sh) - Your AI-powered code editor
-✅ GitHub - Code storage and version control
-✅ Railway (railway.app) - Hosting platform
-✅ Claude Console (console.anthropic.com) - For API access
-✅ Amazon Associates - For affiliate revenue (focus on divorce/parenting books)
-✅ Cron-job.org - For automation triggers
-Optional: Domain registrar for custom domain (e.g., parallelpathsparenting.com, highconflictcoparent.com)
-
-Step 5: Configure Cursor
+Step 2: Configure Cursor
 
 Download and install Cursor
-Create empty folder: coparenting-blog or similar
+Create empty folder: custody-buddy-blog
 Open folder in Cursor
 Connect to Claude Sonnet 4.5 in settings
 Add your Claude API key
 
-If stuck: Use Perplexity.ai to search "how to connect Claude API to Cursor"
 
-Phase 3: Build the Blog System
-Step 6: Generate Initial Codebase
-Switch Cursor to Planning Mode before submitting this prompt:
+Phase 3: Build the Blog System - Hostinger Version
+Step 3: Generate Initial Codebase (Modified Prompt)
+Switch Cursor to Planning Mode, then use this adapted prompt:
 I'd like to create a blog that automatically updates. I'd like to use PHP, 
-SQLite, and Claude to do the writing.
+MySQL, and Claude to do the writing.
+
+IMPORTANT HOSTING DETAILS:
+- Hosting: Hostinger hPanel (shared hosting)
+- Domain path: https://custodybuddy.com/family-law-blog/
+- Server path: /public_html/family-law-blog/
+- Database: MySQL (not SQLite)
+- PHP version: 8.1 or 8.2 (check in Hostinger)
+- Files will be uploaded via Hostinger File Manager
+- Cron jobs configured via hPanel (not external service)
 
 Blog Details:
 - Topic: High-conflict co-parenting, parallel parenting, and family law navigation
@@ -73,914 +43,1054 @@ Blog Details:
   with realistic expectations
 
 Requirements:
-- Minimal, mobile-first design (many users read during stressful moments on phones)
-- Match the look and feel of: https://www.highconflictinstitute.com/blog 
-  (or another inspiration URL you prefer)
+- Minimal, mobile-first design
+- Match the look and feel of: https://www.highconflictinstitute.com/blog
 - Blog explores topics like: grey rock communication, parallel parenting strategies, 
-  court documentation, protecting children, setting boundaries, and emotional regulation
+  court documentation, protecting children, setting boundaries, emotional regulation
 - Create one blog post per day (one every 5 minutes for testing)
-- Include section at bottom with Amazon affiliate links to 3 relevant books 
-  (divorce recovery, co-parenting guides, legal self-help, trauma healing)
-- Use PHP, SQLite, minimal JavaScript
+- Include section at bottom with Amazon affiliate links to 3 relevant books
+- Use PHP + MySQL (shared hosting compatible)
 - AI will write posts AND select relevant books
-- Host on Railway
+- Must work in subdirectory structure (/family-law-blog/)
+- Include database setup SQL file
+- Include config.php for easy environment setup
+
+Structure Requirements:
+- index.php (blog homepage)
+- post.php (individual post view)
+- cron.php (for automated posting)
+- admin.php (simple admin panel - optional but recommended)
+- config.sample.php (template for configuration)
+- install.sql (database setup script)
+- .htaccess (for clean URLs)
+- /assets/ folder (CSS, JS)
+
+Database Requirements:
+- Connection should use mysqli or PDO
+- Include proper error handling
+- Support shared hosting environment
+- Auto-create tables if they don't exist
 
 Additional Notes:
 - Posts should be 800-1200 words
-- Include actionable steps and specific scripts/templates where appropriate
-- Validate the reader's experience before offering solutions
-- Avoid absolutist language ("never talk to your ex") - acknowledge complexity
-- Include disclaimers where appropriate (not legal advice, not therapy)
+- Include actionable steps and specific scripts/templates
+- Validate reader's experience before offering solutions
+- Include disclaimers (not legal advice, not therapy)
+- All file paths must be relative to /family-law-blog/ subdirectory
 
 What questions do you have?
-Answer AI's Clarifying Questions:
+Answer AI's Questions:
 
-Inspiration URL: Provide URL or describe aesthetic (clean, calming colors, easy-to-scan)
-Hosting: Confirm Railway + include docs.railway.com URL
-Enable "Connect to Browser" so AI can research
-API Keys: Confirm you have them, will add later
-Scheduling: Mention cron-job.org for automation
+MySQL Connection: "I'll provide database credentials after you generate the code. Use config.php for credentials."
+Subdirectory Handling: "Yes, all URLs must work under /family-law-blog/ path. Use relative paths or BASE_URL constant."
+File Upload Method: "Files will be uploaded manually via Hostinger File Manager. Keep structure simple."
+Cron Job: "Hostinger hPanel has built-in cron job manager. Provide instructions for that."
+PHP Version: "Assume PHP 8.1. Use modern PHP but avoid features that won't work on shared hosting."
 
 Review the Plan → Click "Build"
-Step 7: Configure API Keys
-Gather these credentials:
-Claude API Key:
 
-Go to console.anthropic.com
-Create new API key
-Budget estimate: $3-8/month for daily posts
+Phase 4: Configure Hostinger Environment
+Step 4: Set Up MySQL Database in hPanel
+In Hostinger hPanel:
 
-Amazon Affiliate ID:
+Navigate to Databases → MySQL Databases
+Click Create New Database
+Fill in:
 
-Sign up at Amazon Associates
-Note your affiliate tag (e.g., yoursite-20)
+   Database Name: u123456789_custody_blog
+   (Hostinger auto-prefixes with your user ID)
 
-Cron Secret Token:
+Click Create
+Create Database User:
+
+   Username: u123456789_custody_user
+   Password: [Generate strong password - save this!]
+
+Click Create User
+Assign User to Database:
+
+Select database: u123456789_custody_blog
+Select user: u123456789_custody_user
+Grant All Privileges
+Click Add
+
+
+Save These Credentials:
+
+   Database Host: localhost (on Hostinger)
+   Database Name: u123456789_custody_blog
+   Database User: u123456789_custody_user
+   Database Password: [your generated password]
+Step 5: Configure API Keys Locally
+Create config.php in your local Cursor folder:
 Ask Cursor:
-Can you create a cron job token for me? It must be 32 hex characters.
-Save all securely in password manager
-Step 8: Local Testing & Refinement
-Start Local Server:
-Ask Cursor: "Please start the local server"
-Test First Post:
-Ask Cursor: "Let's try to create our first blog post using this topic:
-'Grey Rocking Without Going Numb: Communication in High-Conflict Co-Parenting'"
-Common Issue - Claude API Version:
-If you get errors about Claude versions, provide documentation:
-The API is returning version errors. Please update to use the current 
-Claude API as documented at: https://docs.anthropic.com/en/api/messages
-Design Refinement:
+Please create a config.php file with all necessary configuration. 
+Include placeholders for:
 
-Show Cursor screenshots or URLs of designs you like
-Request specific color schemes (calming blues/greens for high-stress audience)
-Ensure mobile-first (large touch targets, readable fonts)
-Test readability during emotional stress (simple layouts, clear hierarchy)
+- MySQL database credentials
+- Claude API key
+- Amazon Affiliate ID
+- Cron secret token (32 hex characters)
+- Base URL (https://custodybuddy.com/family-law-blog/)
+- Subdirectory path (/family-law-blog/)
+- Timezone settings
 
-Content Refinement:
-The tone needs to be more validating. Here's an example of the voice I want:
+Also create config.sample.php (same file but with placeholder values) 
+that I can commit to GitHub without exposing credentials.
+Fill in your actual config.php:
+php<?php
+// Database Configuration
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'u123456789_custody_blog');
+define('DB_USER', 'u123456789_custody_user');
+define('DB_PASS', 'your_strong_password_here');
 
-[Paste example paragraph that balances validation with practical advice]
+// API Keys
+define('CLAUDE_API_KEY', 'sk-ant-your-key-here');
+define('AMAZON_AFFILIATE_ID', 'custodybuddy-20');
 
-Please update the writing prompts to match this tone throughout.
+// Security
+define('CRON_SECRET_TOKEN', 'your_32_hex_character_token');
 
-Phase 4: Deployment to Production
-Step 9: Push to GitHub
+// Site Configuration
+define('BASE_URL', 'https://custodybuddy.com/family-law-blog/');
+define('SITE_PATH', '/family-law-blog/');
+define('TIMEZONE', 'America/New_York'); // Adjust to your timezone
 
-Create new repository in GitHub
-Name it (e.g., coparenting-support-blog)
-Copy repository URL
-In Cursor: "Let's push this to GitHub" + paste URL
-Verify files uploaded successfully
+// Error Reporting (set to 0 in production)
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+?>
+```
 
-Step 10: Deploy to Railway
+**Get your API keys:**
 
-Log into Railway
-"Deploy New Project" → Select GitHub repo
-Wait for initial build (expect errors - normal!)
+**Claude API:**
+- Go to console.anthropic.com
+- Create new API key
+- Paste into config.php
 
-Troubleshoot Errors:
+**Amazon Affiliate ID:**
+- Sign up at Amazon Associates
+- Your tag: `custodybuddy-20` (or your assigned tag)
 
-Copy error messages from Railway logs
-Paste into Cursor with: docs.railway.com link
-Apply fixes, push to GitHub (auto-deploys to Railway)
+**Cron Token:**
+Ask Cursor: `Generate a secure 32 hex character token for CRON_SECRET_TOKEN`
 
-Step 11: Configure Domain
-Option A - Custom Domain:
+---
 
-Railway → Settings → Networking
-Add: blog.yourdomain.com
-Copy DNS records
-Add to domain registrar (GoDaddy, Namecheap, etc.)
+## Phase 5: Local Testing
 
-Option B - Railway Subdomain:
-Click to generate free Railway subdomain
-Recommended Domain Ideas:
+### Step 6: Test Locally with XAMPP/MAMP (Optional but Recommended)
 
-parallelpathsparenting.com
-grayrockguide.com
-highconflictcoparent.com
-boundariesandpeace.com
+**Option A: Test Locally First**
 
-Step 12: Set Railway Environment Variables
-Navigate to Railway Variables tab:
-CLAUDE_API_KEY = [your Claude key]
-AMAZON_AFFILIATE_ID = [your Amazon tag]
-CRON_SECRET_TOKEN = [32 hex character token]
-Step 13: Configure Database (Critical!)
-Prevent data loss on updates:
+1. Install **XAMPP** (Windows) or **MAMP** (Mac)
+2. Start Apache and MySQL
+3. Import `install.sql` to local MySQL
+4. Configure local `config.php` with local DB credentials
+5. Access: `http://localhost/family-law-blog/`
+
+**Option B: Skip to Live Testing**
+
+If you're comfortable, skip local testing and go straight to Hostinger upload.
+
+### Step 7: Initial File Organization Check
+
+**Ask Cursor to verify structure:**
+```
+Please verify that all file paths are correct for subdirectory deployment:
+
+1. All CSS/JS links should be relative or use BASE_URL
+2. All internal links use BASE_URL . 'page.php'
+3. .htaccess handles subdirectory routing correctly
+4. Database connection includes proper error handling
+5. No hardcoded paths like /var/www/html/
+
+Show me the directory structure and confirm it's ready for upload.
+```
+
+**Expected structure:**
+```
+custody-buddy-blog/
+├── index.php
+├── post.php
+├── cron.php
+├── admin.php (optional)
+├── config.php
+├── config.sample.php
+├── install.sql
+├── .htaccess
+├── README.md
+├── /assets/
+│   ├── /css/
+│   │   └── style.css
+│   └── /js/
+│       └── main.js
+└── /includes/
+    ├── db.php
+    ├── functions.php
+    └── header.php
+    └── footer.php
+
+Phase 6: Upload to Hostinger
+Step 8: Upload Files via File Manager
+In Hostinger hPanel:
+
+Navigate to Files → File Manager
+Navigate to /public_html/family-law-blog/
+
+If folder doesn't exist, create it:
+
+Click + New Folder
+Name: family-law-blog
+Click Create
+
+
+
+
+Upload files:
+Option A: Upload as ZIP (Recommended)
+
+In your local folder, select all files
+Create ZIP: blog-files.zip
+In File Manager, click Upload
+Upload blog-files.zip
+Right-click ZIP → Extract
+Delete ZIP file after extraction
+
+Option B: Upload Individual Files
+
+Click Upload
+Select all files from your local folder
+Wait for upload to complete
+Verify all files present
+
+
+Set Permissions:
+
+Select config.php → Right-click → Permissions
+Set to 644 (read-only for security)
+For uploads folder (if exists): 755
+
+
+
+Step 9: Set Up Database
+In Hostinger File Manager:
+
+Locate install.sql in /public_html/family-law-blog/
+Copy its contents
+
+In Hostinger hPanel:
+
+Navigate to Databases → phpMyAdmin
+Select your database: u123456789_custody_blog
+Click SQL tab
+Paste contents of install.sql
+Click Go
+Verify tables created (check left sidebar)
+
+Expected tables:
+
+posts
+topics
+books
+post_topics (if normalized)
+settings (optional)
+
+Step 10: Initial Configuration Check
+Test database connection:
+
+Navigate to: https://custodybuddy.com/family-law-blog/
+
+Expected outcomes:
+✅ Success: Blog homepage loads, shows empty state or "No posts yet"
+❌ Error: Database connection failed
+
+Fix: Check config.php credentials match hPanel MySQL settings
+Check: DB_HOST is 'localhost' (correct for Hostinger)
+
+❌ Error: 404 Not Found
+
+Fix: Check .htaccess file uploaded correctly
+Fix: Verify folder name is exactly family-law-blog
+
+❌ Error: 500 Internal Server Error
+
+Fix: Check PHP error log in hPanel → Logs
+Common cause: Syntax error or wrong PHP version
+Check: Hostinger PHP version (should be 8.1+)
+
+Step 11: Load Your 10 Topics into Database
+Option A: Via Admin Panel (if built)
+
+Navigate to https://custodybuddy.com/family-law-blog/admin.php
+Log in (or create admin access)
+Go to "Topics" or "Content Management"
+Paste your JSON topics:
+
+json[
+  {
+    "title": "When Your Co-Parent Keeps Breaking the Parenting Plan",
+    "description": "How to respond calmly, document properly, and protect your kids when the other parent constantly ignores the schedule or orders.",
+    "category": "documentation",
+    "used": false
+  },
+  {
+    "title": "Grey Rocking Without Going Numb: Communication in High-Conflict Co-Parenting",
+    "description": "Using neutral, low-drama responses to reduce conflict without abandoning your own emotions or needs.",
+    "category": "communication",
+    "used": false
+  },
+  {
+    "title": "Parallel Parenting vs. Co-Parenting: What Works When Your Ex Won't Cooperate",
+    "description": "Understanding the difference between co-parenting and parallel parenting, and when to switch strategies in a high-conflict case.",
+    "category": "strategy",
+    "used": false
+  },
+  {
+    "title": "How to Document Emotional Abuse Without Looking Petty in Court",
+    "description": "Practical ways to capture patterns of emotional harm, including text messages, school issues, and your child's statements, in a court-friendly way.",
+    "category": "documentation",
+    "used": false
+  },
+  {
+    "title": "Supporting Your Child When They're Stuck in the Middle",
+    "description": "Helping kids who feel torn, pressured to choose sides, or used as messengers between parents.",
+    "category": "child-support",
+    "used": false
+  },
+  {
+    "title": "The Justice Gap: Why Court Doesn't Punish Every Lie and What to Do Instead",
+    "description": "Accepting that family court is about best interests, not moral justice, and shifting your strategy accordingly.",
+    "category": "legal-reality",
+    "used": false
+  },
+  {
+    "title": "Creating a FU Binder (Litigation Log) That Actually Works in Court",
+    "description": "Turning chaos into clarity with evidence logs, timelines, and neutral language that judges can quickly understand.",
+    "category": "documentation",
+    "used": false
+  },
+  {
+    "title": "Talking to Your Lawyer So They Actually Understand the Pattern of Abuse",
+    "description": "How to summarize a long, messy history into clear themes, incidents, and evidence your lawyer can use.",
+    "category": "legal-strategy",
+    "used": false
+  },
+  {
+    "title": "Protecting Your Nervous System in a Never-Ending Custody Battle",
+    "description": "Simple, realistic self-regulation tools for parents who feel constantly flooded, hypervigilant, or exhausted.",
+    "category": "self-care",
+    "used": false
+  },
+  {
+    "title": "Setting Boundaries Around Last-Minute Change Requests",
+    "description": "Scripts and strategies for responding when the other parent constantly asks to swap days or change pickups at the last second.",
+    "category": "boundaries",
+    "used": false
+  }
+]
+Option B: Direct Database Insert via phpMyAdmin
+
+Hostinger hPanel → Databases → phpMyAdmin
+Select u123456789_custody_blog
+Click topics table
+Click Insert tab
+Manually add each topic, or:
+
+Better: Use SQL Insert:
+Click SQL tab, paste:
+sqlINSERT INTO topics (title, description, category, used, times_used) VALUES
+('When Your Co-Parent Keeps Breaking the Parenting Plan', 'How to respond calmly, document properly, and protect your kids when the other parent constantly ignores the schedule or orders.', 'documentation', 0, 0),
+('Grey Rocking Without Going Numb: Communication in High-Conflict Co-Parenting', 'Using neutral, low-drama responses to reduce conflict without abandoning your own emotions or needs.', 'communication', 0, 0),
+('Parallel Parenting vs. Co-Parenting: What Works When Your Ex Won''t Cooperate', 'Understanding the difference between co-parenting and parallel parenting, and when to switch strategies in a high-conflict case.', 'strategy', 0, 0),
+('How to Document Emotional Abuse Without Looking Petty in Court', 'Practical ways to capture patterns of emotional harm, including text messages, school issues, and your child''s statements, in a court-friendly way.', 'documentation', 0, 0),
+('Supporting Your Child When They''re Stuck in the Middle', 'Helping kids who feel torn, pressured to choose sides, or used as messengers between parents.', 'child-support', 0, 0),
+('The Justice Gap: Why Court Doesn''t Punish Every Lie and What to Do Instead', 'Accepting that family court is about best interests, not moral justice, and shifting your strategy accordingly.', 'legal-reality', 0, 0),
+('Creating a FU Binder (Litigation Log) That Actually Works in Court', 'Turning chaos into clarity with evidence logs, timelines, and neutral language that judges can quickly understand.', 'documentation', 0, 0),
+('Talking to Your Lawyer So They Actually Understand the Pattern of Abuse', 'How to summarize a long, messy history into clear themes, incidents, and evidence your lawyer can use.', 'legal-strategy', 0, 0),
+('Protecting Your Nervous System in a Never-Ending Custody Battle', 'Simple, realistic self-regulation tools for parents who feel constantly flooded, hypervigilant, or exhausted.', 'self-care', 0, 0),
+('Setting Boundaries Around Last-Minute Change Requests', 'Scripts and strategies for responding when the other parent constantly asks to swap days or change pickups at the last second.', 'boundaries', 0, 0);
+```
+
+Click **Go**
+
+Verify: Click **Browse** tab to see all 10 topics loaded
+
+---
+
+## Phase 7: Test First Post Generation
+
+### Step 12: Manual Test Post
+
+**In your browser:**
+
+Navigate to:
+```
+https://custodybuddy.com/family-law-blog/cron.php?token=YOUR_32_CHAR_TOKEN
+```
+
+**Expected behavior:**
+- Page loads (may take 30-60 seconds)
+- Returns success message: "Blog post created successfully"
+- Check homepage: New post should appear
+
+**If error:**
+
+Check PHP error logs:
+1. Hostinger hPanel → **Advanced → Error Logs**
+2. Find PHP errors related to your blog
+3. Common issues:
+   - Claude API key invalid
+   - API timeout (increase max_execution_time)
+   - Database write permissions
+   - JSON parsing error
+
+**Ask Cursor to debug:**
+```
+I'm getting this error when running cron.php:
+[paste error message]
+
+Please help me fix it. Remember this is on Hostinger shared hosting 
+with MySQL database.
+```
+
+### Step 13: Verify Post Content
+
+**Check the generated post:**
+
+1. Navigate to homepage: `https://custodybuddy.com/family-law-blog/`
+2. Click on the new post
+3. Verify:
+   - ✅ Title matches one of your 10 topics
+   - ✅ Content is 800-1200 words
+   - ✅ Tone is appropriate (validating, practical)
+   - ✅ Includes actionable steps
+   - ✅ 3 Amazon books at bottom
+   - ✅ Affiliate links include your tag: `custodybuddy-20`
+   - ✅ Legal/therapy disclaimers present
+   - ✅ Mobile responsive design
+
+**If content needs adjustment:**
+```
+Ask Cursor: "The tone is too [clinical/generic/etc]. Please update the 
+content generation prompt to be more [validating/practical/specific]. 
+
+Here's an example of the tone I want:
+[paste example paragraph]
+"
+```
+
+Then re-upload modified files to Hostinger.
+
+---
+
+## Phase 8: Automate with Hostinger Cron Jobs
+
+### Step 14: Set Up Cron Job in hPanel
+
+**In Hostinger hPanel:**
+
+1. Navigate to **Advanced → Cron Jobs**
+2. Click **Create Cron Job**
+
+**Configure:**
+```
+Common Settings: Custom
+Minute: 0
+Hour: 9
+Day: *
+Month: *
+Weekday: *
+
+(This runs daily at 9:00 AM)
+
+Command Type: URL
+URL: https://custodybuddy.com/family-law-blog/cron.php?token=YOUR_32_CHAR_TOKEN
+
+Email Notification: your@email.com (optional - notifies on success/fail)
+```
+
+**Alternative Schedules:**
+
+**Twice daily (9 AM and 9 PM):**
+```
+Minute: 0
+Hour: 9,21
+Day: *
+Month: *
+Weekday: *
+```
+
+**Every 12 hours:**
+```
+Minute: 0
+Hour: */12
+Day: *
+Month: *
+Weekday: *
+```
+
+**For testing (every 5 minutes):**
+```
+Minute: */5
+Hour: *
+Day: *
+Month: *
+Weekday: *
+
+⚠️ DISABLE THIS AFTER TESTING - Too frequent for production
+```
+
+3. Click **Create**
+
+### Step 15: Test Cron Job
+
+**Wait for scheduled time, or:**
+
+**Manual trigger:**
+1. In Cron Jobs list, find your job
+2. Click **Run Now** (if available)
+3. Or visit URL directly in browser
+
+**Monitor:**
+- Check email notifications (if enabled)
+- Visit homepage to see if new post appeared
+- Check hPanel → **Error Logs** for any cron-related errors
+
+**Common Cron Issues:**
+
+❌ **Timeout (30-second limit on shared hosting)**
 
 Ask Cursor:
+```
+The cron job times out after 30 seconds but post generation takes longer. 
+Please modify cron.php to:
+1. Return immediately after starting post generation
+2. Use background processing
+3. Or split into smaller tasks
 
-Can you verify the database connection configuration for Railway deployment?
+This is Hostinger shared hosting with typical limitations.
+❌ Memory limit exceeded
+Add to top of cron.php:
+phpini_set('memory_limit', '256M');
+ini_set('max_execution_time', 300);
+```
 
-In Railway:
+❌ **Posts not generating**
 
-Right-click service
-"Attach Volume"
-Mount path: /app/data
-Add → Apply → Redeploy
-
-
-
-Why this matters: Without this, every code update erases all blog posts.
-Step 14: Verify Live Blog
-
-Navigate to your live URL
-Create test post:
-
-Create a test post about: "Setting Boundaries Around Last-Minute Change Requests"
-
-Verify:
-
-✅ Post displays correctly
-✅ Formatting is clean and mobile-friendly
-✅ Affiliate links work
-✅ Links include your Amazon tag
-✅ Tone matches high-conflict co-parenting audience
-
-
-
-
-Phase 5: Automation & Content Diversity
-Step 15: Inject Your Pre-Researched Topics
-This is where your JSON file comes in:
-I want to update the blog to use these specific researched topics to create 
-diverse, targeted content. These topics come from real co-parenting forums 
-where parents are struggling:
-
-[PASTE YOUR ENTIRE JSON FILE]
-
-Please update the content generation system to:
-1. Store these topics in the database
-2. Rotate through them systematically (never repeat until all are used)
-3. Generate posts that directly address each topic's description
-4. Match books to the specific topic (not just general co-parenting)
-5. Track which topics have been used
-
-After all 10 topics are used once, mark them all as available again for 
-a second cycle.
-Cursor will:
-
-Create database schema for topic tracking
-Build topic rotation logic
-Update Claude prompts to align with each specific topic
-Implement anti-repetition system
-
-Step 16: Enhance Topic-Specific Prompts
-Customize the AI's writing approach per topic type:
-Update the content generation to use these topic-specific approaches:
-
-For DOCUMENTATION topics (FU Binder, Evidence):
-- Include specific templates and examples
-- Provide step-by-step processes
-- Mention court-friendly language explicitly
-- Add disclaimer: "This is not legal advice. Consult an attorney in your jurisdiction."
-
-For COMMUNICATION topics (Grey Rock, BIFF, Boundaries):
-- Include specific scripts and example responses
-- Show before/after examples
-- Acknowledge the emotional difficulty
-- Provide "what to do when it doesn't work" section
-
-For EMOTIONAL REGULATION topics (Nervous System, Stuck in Middle):
-- Lead with validation of the struggle
-- Include somatic/body-based practices
-- Provide quick 5-minute tools for crisis moments
-- Normalize the difficulty
-
-For LEGAL STRATEGY topics (Court, Justice Gap, Lawyers):
-- Set realistic expectations about court outcomes
-- Include "what to ask your attorney" questions
-- Explain why courts operate certain ways
-- Empower without creating false hope
-Step 17: Configure Automated Posting
-Prevent timeout issues:
-We need to configure the cron job system for blog posts that take 30+ seconds 
-to generate. Please update the code to handle long-running post generation 
-without timeouts.
-Set Up Cron-job.org:
-
-Login to cron-job.org
-Create new job: "Co-Parenting Blog Auto-Post"
-URL: https://yourblog.com/cron.php?token=[YOUR_32_CHAR_TOKEN]
-Schedule:
-
-Testing: Every 5 minutes
-Production: Daily at 6 AM (or whenever your audience is most active)
-
-
-Save and test
-
-Recommended Posting Schedule:
-
-1x daily at 6 AM: Catches morning readers (many check phones early during stressful custody situations)
-Alternative: 8 PM for evening reflection time
-High engagement: Sunday evenings (parents preparing for week ahead)
-
-Step 18: Optimize Book Selection for This Niche
-Enhance affiliate revenue with targeted books:
-Update the book recommendation system with these niche-specific guidelines:
-
-Core Categories to Rotate:
-1. High-Conflict Divorce/Custody
-   - "Splitting" by Bill Eddy
-   - "Will I Ever Be Free of You?" by Karyl McBride
-   - "Co-parenting with a Toxic Ex" by Amy J.L. Baker
-
-2. Narcissistic Abuse Recovery
-   - "Whole Again" by Jackson MacKenzie
-   - "Should I Stay or Should I Go?" by Ramani Durvasula
-   - "It's Not You" by Ramani Durvasula
-
-3. Legal Self-Help
-   - State-specific custody guides
-   - "Nolo's Essential Guide to Child Custody & Support"
-   - Family law procedure books
-
-4. Child Psychology & Support
-   - "Co-parenting with a Toxic Ex" (child-focused sections)
-   - "Divorce Poison" by Richard Warshak
-   - "The Co-Parents' Handbook" by Karen Bonnell
-
-5. Trauma & Nervous System Regulation
-   - "The Body Keeps the Score" by van der Kolk
-   - "Complex PTSD" by Pete Walker
-   - "Wired for Love" by Stan Tatkin
-
-Match books to specific post topics:
-- Grey Rock posts → Communication/narcissism books
-- Documentation posts → Legal guides
-- Child support posts → Child psychology books
-- Regulation posts → Trauma healing books
-
-Prioritize books with:
-- 4.5+ star ratings
-- 500+ reviews
-- Recent publication (last 10 years) OR classic status (proven over time)
-- Practical, actionable content (not just theory)
-
-Phase 6: Content Optimization
-Step 19: Add Niche-Specific Features
-Legal Disclaimers:
-Add this disclaimer to every post that mentions legal topics:
+Check:
+- Token in URL matches config.php
+- Claude API key is valid and has credit
+- Database tables exist and are writable
+- PHP error log shows specific issue
 
 ---
-**Disclaimer**: This article provides general information and is not legal advice. 
-Family law varies significantly by jurisdiction. Consult with a licensed attorney 
-in your area for advice specific to your situation.
----
-Therapeutic Disclaimers:
-For posts about emotional/psychological topics:
 
----
-**Note**: This content is educational and not a substitute for therapy. If you're 
-experiencing crisis, please contact a mental health professional or call the 
-National Domestic Violence Hotline at 1-800-799-7233.
----
-Resource Sections:
-Add to relevant posts:
+## Phase 9: Content Optimization (Hostinger-Specific)
 
-### Additional Resources
-- [National Domestic Violence Hotline](https://www.thehotline.org/): 1-800-799-7233
-- [High Conflict Institute](https://www.highconflictinstitute.com/): Tools and training
-- [One Mom's Battle](https://onemomsbattle.com/): High-conflict co-parenting community
-- Find a therapist specializing in high-conflict divorce: [Psychology Today Directory](https://www.psychologytoday.com/us/therapists)
-Step 20: Enhance Voice & Tone
-Provide example content to refine AI's writing:
-Here's an example of the exact tone I want. Notice how it validates without 
-wallowing, empowers without false promises, and provides practical tools:
+### Step 16: Refine Content Generation
 
-[PASTE EXAMPLE PARAGRAPH - Create one yourself or find from a source you admire]
+**Update prompts via file edit:**
 
-Example:
-"You're not imagining it. When your co-parent ignores the parenting plan for 
-the third time this month, it's not about 'miscommunication' or 'different 
-parenting styles.' It's a pattern. And you're exhausted trying to figure out 
-if you're overreacting or under-protecting your kids. 
+1. In Hostinger File Manager, locate the file with Claude API prompts
+   - Usually in `includes/content-generator.php` or similar
+2. Click file → **Edit**
+3. Modify the prompt text directly in browser
+4. Click **Save**
+5. Test with new manual cron trigger
 
-Here's what's true: You can't control their behavior. The court won't punish 
-every violation. And your kids are watching how you respond to chaos.
+**Or update locally in Cursor and re-upload:**
+```
+Ask Cursor: "Show me where the content generation prompts are stored. 
+I want to refine the tone to be more [specific adjustment]."
+```
+
+Make changes in Cursor → Re-upload modified files to Hostinger
+
+### Step 17: Add Your Custom Voice
+
+**Provide example content:**
+
+Create a new file locally: `voice-examples.txt`
+```
+TONE EXAMPLES FOR CO-PARENTING BLOG:
+
+Example 1 - Validation + Action:
+"You're not imagining it. When your co-parent ignores the parenting plan 
+for the third time this month, it's not about 'miscommunication.' It's a 
+pattern. And you're exhausted trying to figure out if you're overreacting.
+
+Here's what's true: You can't control their behavior. The court won't 
+punish every violation. And your kids are watching how you respond.
 
 So what CAN you do? Document without obsessing. Respond without engaging. 
 Protect without alienating. Let me show you how."
 
-Please update all content generation to match this voice:
-- Direct, no-nonsense opening that validates the reader's experience
-- Acknowledges hard truths about courts/systems
-- Shifts quickly to actionable steps
-- Uses "you" language (not "one should")
-- Balances realism with empowerment
-Step 21: Add Scripts & Templates
-For maximum value, include downloadable/copyable resources:
-For communication-focused posts, include sections like:
+Example 2 - Realism + Hope:
+"Family court isn't about who's right or wrong. It's about what's in the 
+child's best interests. Yes, that means your ex might 'get away with' lying. 
+Yes, that's infuriating.
 
-### BIFF Response Template
-**Brief**: [One sentence stating facts]
-**Informative**: [Relevant information only]
-**Friendly**: [Neutral closing]
-**Firm**: [Clear boundary if needed]
+But here's the shift: Stop fighting for justice. Start fighting for clarity. 
+When you document patterns instead of incidents, use BIFF communication 
+instead of emotional responses, and focus on your child's stability instead 
+of exposing your ex... you win the long game."
 
-**Example:**
-"I received your request to switch weekends. The parenting plan states changes 
-require 7 days notice. If you'd like to request future changes, please do so 
-by [date]. See you at pickup on Friday at 6 PM."
+Use this tone throughout all posts: validating, realistic, action-focused.
+```
+
+**Upload to Hostinger and update prompts:**
+```
+Ask Cursor: "Update the content generation system to use the tone and 
+voice shown in voice-examples.txt. Apply this to all future posts."
+```
+
+Re-upload the modified code.
 
 ---
 
-For documentation posts:
+## Phase 10: Monitoring & Maintenance
 
-### Incident Log Template
-| Date | Time | What Happened | Evidence | Impact on Child |
-|------|------|---------------|----------|-----------------|
-| [Date] | [Time] | [Brief, factual description] | [Text screenshot, email, witness] | [Observable behavior change] |
-Step 22: A/B Test Content Structures
-Try different formats to see what resonates:
-Ask Cursor to rotate between:
+### Step 18: Set Up Tracking
 
-Problem → Framework → Application
+**Install Google Analytics:**
 
-Open with relatable scenario
-Explain psychological/legal principle
-Show how to apply it
+1. Create Google Analytics account
+2. Get tracking code
+3. In Hostinger File Manager:
+   - Edit `includes/header.php`
+   - Paste GA code before `</head>`
+   - Save
 
+**Or ask Cursor:**
+```
+Add Google Analytics tracking to the blog. My tracking ID is: G-XXXXXXXXXX
 
-Myth-Busting Format
+Make sure it's included on all pages.
+```
 
-"5 Things Courts Don't Care About (And What They Do)"
-Challenge common misconceptions
-Provide realistic alternatives
+### Step 19: Create Simple Analytics Dashboard
 
+**Track in Google Sheets:**
 
-Step-by-Step Guides
+Create sheet: "Blog Performance"
 
-"7 Steps to Building Your FU Binder"
-Clear, numbered processes
-Checkboxes for completion
+**Manual weekly check:**
+- Posts published this week
+- Top performing posts (GA)
+- Affiliate clicks (Amazon Associates dashboard)
+- Any errors in Hostinger logs
 
+**Or automate:**
 
-Scripts & Scenarios
+Ask Cursor:
+```
+Create a simple admin.php page that shows:
+- Total posts published
+- Posts by topic
+- Most recent 10 posts
+- Topics not yet used
+- Simple statistics
 
-"What to Say When They Accuse You in Text"
-Multiple example responses
-Explain why each works
+This should be password protected. Use basic auth.
+```
 
+Upload admin.php to Hostinger.
 
-Real Talk Format
+Access: `https://custodybuddy.com/family-law-blog/admin.php`
 
-"Why Court Probably Won't Punish Your Ex (And What To Do Instead)"
-Honest about system limitations
-Refocus on what reader CAN control
+### Step 20: Backup Strategy
 
+**Hostinger includes backups, but:**
 
+**Weekly manual backup (Recommended):**
 
+1. Hostinger File Manager
+2. Select `/public_html/family-law-blog/` folder
+3. Right-click → **Compress**
+4. Download ZIP file
+5. Save locally with date: `custody-blog-backup-2024-12-01.zip`
 
-Phase 7: Monitoring & Iteration
-Step 23: Track Performance
-Create analytics tracking sheet:
+**Database backup:**
 
-Google Sheets: "Blog Performance"
+1. phpMyAdmin → Select database
+2. Click **Export**
+3. Format: SQL
+4. Click **Go**
+5. Save: `custody-blog-db-2024-12-01.sql`
 
-Columns:
+**Automated backups:**
 
-Date Published
-Topic Title
-Word Count
-Books Featured
-Page Views (connect Google Analytics)
-Time on Page
-Bounce Rate
-Affiliate Clicks
-Comments/Engagement
+Consider setting up GitHub:
+1. Initialize git in local folder
+2. Create GitHub repository
+3. Push code regularly
+4. Database backups can be automated with cron + mysqldump
 
+---
 
-Monitor Patterns:
+## Phase 11: Advanced Features (Optional)
 
-Which topics get most engagement?
-Which books convert best?
-What time of day performs better?
-Which writing formats resonate?
+### Step 21: Add Email Signups
 
+**Option A: Mailchimp Integration**
 
+Ask Cursor:
+```
+Add a simple email signup form to the blog footer. 
 
-Step 24: Adjust Based on Audience Feedback
-Add comment system or feedback form:
-Ask Cursor: "Add a simple comment form to each post that asks:
-1. Was this helpful? (Yes/No)
-2. What specific tool or strategy will you try?
-3. What topic should we cover next?
+Use Mailchimp's embedded form code. The form should:
+- Ask for email only
+- Have placeholder: "Get weekly co-parenting tips"
+- Submit button: "Join Free"
+- Match blog design
+- Work on mobile
 
-Store responses in database for review."
-Monthly review:
+I'll provide the Mailchimp form action URL after generation.
+```
 
-Read comments for pain points
-Identify gaps in topic coverage
-Adjust tone if needed
-Add requested topics to rotation
+Get form action URL from Mailchimp → Audience → Signup Forms → Embedded Forms
 
-Step 25: Expand Topic Library
-After first cycle through 10 topics, add more:
-Research additional topics on Reddit:
+Update code, re-upload to Hostinger.
 
-r/Divorce
-r/NarcissisticAbuse
-r/custody
-r/coparenting
+**Option B: Custom Email Collection**
 
-New topic areas to explore:
+Ask Cursor:
+```
+Create a simple email collection system that stores emails in MySQL.
 
-Holiday scheduling conflicts
-Introducing new partners to kids
-Dealing with parental alienation claims
-Financial manipulation tactics
-School communication boundaries
-Medical decision-making disputes
-Supervised visitation navigation
-Modification of custody orders
-Grandparent involvement conflicts
-Moving/relocation issues
+Include:
+- Form on blog footer
+- subscribers table in database
+- Simple double-opt-in
+- Export to CSV function in admin.php
+- GDPR-compliant (checkbox for consent)
 
+No automated emails yet - just collection for now.
+```
 
-Expected Timeline for This Niche
-Week 1: Setup & Testing
+### Step 22: Add Lead Magnet
 
-Day 1-2: Accounts, Cursor setup, initial build
-Day 3-4: Local testing, tone refinement
-Day 5-7: Deploy to Railway, configure automation
+**Create downloadable resource:**
 
-Week 2: Content Calibration
+**Free FU Binder Template:**
 
-Generate first 7 posts (one per day)
-Review each for tone, accuracy, helpfulness
-Adjust prompts based on output quality
-Test affiliate links
+1. Create PDF guide locally (use Canva, Google Docs, etc.)
+2. Upload to Hostinger: `/public_html/family-law-blog/downloads/fu-binder-template.pdf`
 
-Week 3: Audience Building
+**Gate it:**
 
-Share on relevant Reddit communities (r/coparenting, etc.)
-Post in Facebook co-parenting groups
-Engage with comments
-Monitor analytics
+Ask Cursor:
+```
+Create a lead magnet delivery system:
 
-Week 4: Optimization
+1. Add "Get Free FU Binder Template" button to homepage
+2. Click → Modal popup with email form
+3. After email submitted → Send download link
+4. Store email in subscribers table
 
-Review which topics perform best
-Refine book recommendations
-Add requested topics
-Consider email signup
+Make it simple - no external services needed yet.
+```
 
-Month 2-3: Growth & Expansion
+This builds your email list while providing immediate value.
 
-All 10 topics published (first cycle begins second rotation)
-Build email list
-Add lead magnet (free FU Binder template PDF)
-Consider adding forum/community
-Explore partnerships with family law attorneys or therapists
+### Step 23: Add Social Sharing
 
+**Easy social share buttons:**
 
-Monetization Strategy for This Niche
-Affiliate Revenue Potential
-Amazon Associates (Books):
+Ask Cursor:
+```
+Add social sharing buttons to each blog post:
 
-Commission: 4.5% on books
-Average book price: $15-25
-Realistic CTR: 2-5% (high-intent audience)
-Monthly potential (1,000 visitors): $30-75
+- Facebook
+- Twitter/X
+- LinkedIn
+- Email (mailto link)
+- Copy link button
 
-Why this niche has strong affiliate potential:
+Use simple URLs (no heavy JS libraries). Native share on mobile if supported.
 
-Readers actively seeking solutions (high purchase intent)
-Books are relatively affordable impulse buys
-Emotional urgency drives immediate action
-Multiple books per person (different aspects of journey)
+Place below post title and at bottom of post.
+```
 
-Additional Revenue Streams
+---
 
-Online Courses/Workshops
+## Troubleshooting Guide - Hostinger Specific
 
-"Documentation Masterclass for Custody Cases"
-"Grey Rock Communication Bootcamp"
-Price point: $47-197
+### Issue 1: Database Connection Fails
 
+**Error:** "Could not connect to database"
 
-Templates & Resources
+**Check:**
+```
+1. Hostinger hPanel → Databases → MySQL Databases
+2. Verify database exists: u123456789_custody_blog
+3. Verify user has ALL PRIVILEGES
+4. Confirm config.php has correct credentials
+5. Try DB_HOST as 'localhost' AND your actual host (e.g., 'mysqlXX.hostinger.com')
+Test database connection independently:
+Create test-db.php:
+php<?php
+require_once 'config.php';
 
-FU Binder templates ($27)
-BIFF response scripts ($17)
-Court testimony prep guide ($37)
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} else {
+    echo "Connected successfully!";
+}
+?>
+Upload, visit: https://custodybuddy.com/family-law-blog/test-db.php
+If successful, delete test-db.php for security.
+Issue 2: Cron Job Not Running
+Check Hostinger cron logs:
 
-Coaching/Consulting
+hPanel → Advanced → Cron Jobs
+Find your job → View logs/output
+Look for error messages
 
-Co-parenting strategy sessions
-Court preparation consultation
-Document review services
+Common fixes:
+❌ URL not accessible
 
+Test URL manually in browser
+Check token is correct
+Verify no .htaccess blocking
 
-Legal Referrals
+❌ PHP execution time limit
+Add to cron.php:
+phpset_time_limit(300); // 5 minutes
+❌ Memory exhausted
+Add to cron.php:
+phpini_set('memory_limit', '256M');
+Issue 3: Posts Generate But Don't Display
+Check:
 
-Partner with family law attorneys
-Affiliate/referral fees for consultations
-Typically $100-500 per referral
+Database → posts table → Verify posts exist
+Check post status (should be "published" not "draft")
+Verify index.php queries database correctly
 
+Debug query:
+Add to index.php temporarily:
+phperror_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-Therapy Directory
+// After database query:
+echo "Found " . $posts->num_rows . " posts<br>";
+Visit homepage, check output.
+Issue 4: Affiliate Links Don't Work
+Verify:
 
-Featured listings for therapists specializing in:
+Links format: https://www.amazon.com/dp/ASIN?tag=custodybuddy-20
+Your Amazon Associate ID is approved and active
+Links open in new tab: target="_blank"
+No redirect or link cloaking (Amazon doesn't allow)
 
-High-conflict divorce
-Narcissistic abuse recovery
-Child custody trauma
+Test a link:
 
+Click affiliate link
+Check URL bar: Should include your tag
+Make test purchase (or add to cart and check Amazon Associates dashboard)
 
+Issue 5: "Permission Denied" Errors
+Fix file permissions:
 
+Hostinger File Manager
+Select problem file/folder
+Right-click → Permissions
+Set:
 
+Files: 644 (read/write for owner)
+Folders: 755 (read/write/execute for owner)
+Config.php: 644 (never 777!)
 
 
-Content Calendar Strategy
-Year 1 Focus: Build Authority
-Months 1-3: Foundation (Core 10 Topics)
+Apply
 
-Cycle through your researched topics
-Establish consistent voice
-Build initial traffic
+For upload directories (if exists):
 
-Months 4-6: Seasonal Content
+/uploads/ folder: 755
+Files inside: 644
 
-Holiday co-parenting (Thanksgiving, Christmas)
-Summer vacation scheduling
-Back-to-school transitions
-Mother's Day/Father's Day boundaries
+Issue 6: Claude API Errors
+"Rate limit exceeded":
 
-Months 7-9: Deep Dives
+You're making too many requests
+Check cron isn't running too frequently
+Verify you have API credits
 
-Multi-part series on complex topics
-Guest posts from family law attorneys
-Interviews with co-parenting therapists
-Case study format (anonymized)
+"Invalid API key":
 
-Months 10-12: Advanced Topics
+Check config.php has correct key
+Verify no extra spaces or line breaks
+Regenerate key in Claude console
 
-Modification of custody orders
-Parental alienation (careful, balanced approach)
-Adult children of high-conflict divorce
-Healing and moving forward
+"Context length exceeded":
 
-Evergreen vs. Timely Balance
-80% Evergreen:
+Your prompt is too long
+Ask Cursor to shorten the content generation prompt
+DPContinue
+Reduce max_tokens in API call
 
-Grey rock communication
-Parallel parenting strategies
-Documentation methods
-Boundary-setting
-Child support tactics
 
-20% Timely:
+Cost Breakdown - Hostinger Version
+Monthly Costs
+Hostinger Hosting:
 
-Holiday scheduling
-Tax season custody issues
-Summer planning
-New school year transitions
+Plan: Premium or Business
+Cost: $2.99-$4.99/month (with promo)
+Includes: MySQL, cron jobs, SSL
 
+Claude API:
 
-SEO Strategy for This Niche
-High-Value Keywords
-Search Intent: Informational (Blog Perfect)
+Post generation: ~2,000 tokens/post
+Book selection: ~800 tokens/post
+Cost per post: ~$0.008
+Daily posts: $0.24/month
+Twice daily: $0.48/month
 
-"how to document narcissistic ex for court"
-"grey rock method examples with co-parent"
-"parallel parenting vs co-parenting"
-"what to do when ex violates parenting plan"
-"fu binder template family court"
+Domain (custodybuddy.com):
 
-Search Volume: Low-Medium, High Intent
+Cost: $10-15/year = $1.25/month
 
-These are long-tail, specific queries
-Lower competition
-Highly motivated searchers
-Strong conversion potential
+Total Monthly Cost:
 
-On-Page Optimization
-Ask Cursor to add:
-Update the blog to automatically generate SEO-optimized elements for each post:
+Single daily post: ~$4-6/month
+Twice daily posts: ~$5-7/month
 
-1. Meta Title: 50-60 characters, include main keyword
-2. Meta Description: 150-160 characters, include call-to-action
-3. H1: Clear, keyword-rich title
-4. H2s: Structured with semantic keywords
-5. Alt text for any images: Descriptive, keyword-relevant
-6. URL slug: lowercase, hyphens, primary keyword
+Revenue Potential:
 
-Example for "Grey Rocking" post:
-- Title: "Grey Rock Method: How to Communicate with a High-Conflict Ex"
-- Description: "Learn the grey rock technique for co-parenting with a difficult ex. Includes scripts, examples, and when to use this powerful communication tool."
-- Slug: "grey-rock-method-high-conflict-coparenting"
+See earlier section on monetization
+First month: Focus on building content
+Month 3+: $30-100/month in affiliate revenue realistic
+Month 6+: $100-500/month with email list + products
 
-Ethical Considerations for This Niche
-Critical Guidelines
-1. Avoid Diagnostic Language
 
-❌ "Your ex is a narcissist"
-✅ "High-conflict co-parenting patterns"
-❌ "They have NPD"
-✅ "Narcissistic behaviors"
+Deployment Checklist - Hostinger Specific
+Pre-Launch
 
-2. Never Encourage Parental Alienation
+ MySQL database created in hPanel
+ Database user created with all privileges
+ config.php configured with all credentials
+ All files uploaded to /public_html/family-law-blog/
+ install.sql executed in phpMyAdmin
+ 10 topics loaded in database
+ Test manual post generation (cron.php?token=...)
+ Verify post displays correctly
+ Check mobile responsive
+ Affiliate links include correct tag
 
-Always emphasize child's best interests
-Discourage badmouthing other parent
-Support child's relationship with both parents (when safe)
+Launch Day
 
-3. Safety First
-
-Include domestic violence resources
-Recognize when parallel parenting isn't enough
-Don't minimize abuse
-
-4. Legal Boundaries
-
-Clear disclaimers on every post
-Never give specific legal advice
-Encourage consultation with local attorneys
-
-5. Balanced Perspective
-
-Acknowledge that high-conflict can come from either/both parents
-Don't assume gender roles
-Recognize complexity of family situations
-
-Content Red Flags to Avoid
-Don't publish AI content that:
-
-Villainizes one parent (maintain neutral "high-conflict co-parent" language)
-Provides specific legal strategies without disclaimer
-Makes promises about court outcomes
-Encourages documentation that could be seen as harassment
-Suggests withholding children as leverage
-Recommends recording without consent (illegal in some states)
-
-Add to AI prompt:
-CRITICAL ETHICAL GUIDELINES:
-
-- Use "high-conflict co-parent" not "narcissist" or diagnostic terms
-- Always include safety disclaimers for abuse situations
-- Never suggest keeping children from other parent except in imminent danger + with attorney
-- Acknowledge courts prioritize child's relationship with both parents
-- Avoid gender assumptions (don't default to "he" or "she")
-- Include resources for when reader might be the problem (self-awareness)
-- Balance validation with accountability
-
-Advanced Features (Months 2-6)
-Feature 1: Interactive Tools
-Ask Cursor to build:
-
-BIFF Response Generator
-
-User inputs inflammatory message from ex
-AI generates BIFF-formatted response
-Explains why response works
-
-
-Documentation Checklist
-
-Interactive incident logger
-Exportable to PDF for attorney
-Cloud storage integration
-
-
-Boundary Script Builder
-
-Select scenario from dropdown
-Generate customized response scripts
-Multiple tone options (formal, casual, firm)
-
-
-
-Feature 2: Email Newsletter
-Weekly digest:
-
-"Sunday Night Survival Guide"
-This week's new post
-Reader Q&A (anonymized)
-Quick tip of the week
-Relevant book recommendation
-
-Lead magnet for signups:
-
-"The Essential FU Binder Checklist" (PDF)
-"50 BIFF Response Templates" (PDF)
-"Grey Rock Quick Reference Guide" (printable)
-
-Feature 3: Community Forum (Optional)
-Pros:
-
-Builds engagement and loyalty
-User-generated content
-Strong community need
-
-Cons:
-
-Moderation intensive
-Liability concerns
-Can become negative echo chamber
-
-Recommendation: Wait until Month 6+ with strong traffic before adding
-Feature 4: Expert Contributors
-Partner with:
-
-Family law attorneys (guest posts)
-Licensed therapists specializing in high-conflict divorce
-Custody evaluators
-Mediators
-Financial advisors (child support, alimony)
-
-Benefits:
-
-Credibility boost
-Backlinks from their sites
-Expert validation of content
-Potential referral revenue
-
-
-Troubleshooting Common Issues
-Issue 1: Tone Too Clinical or Too Victim-Focused
-Solution:
-The tone is off. Revise to balance:
-- Validation WITHOUT victimhood
-- Empowerment WITHOUT toxic positivity
-- Realism WITHOUT hopelessness
-
-Example of RIGHT tone:
-"Yes, this is exhausting. No, court won't fix everything. Here's what you CAN control."
-
-Please adjust content generation prompts to hit this balance.
-Issue 2: Generic Book Recommendations
-Problem: Same 3 books every post
-Solution:
-Books are too repetitive. Update selection criteria:
-
-- Match book difficulty to post complexity
-- Rotate between categories (legal, psychological, child-focused)
-- For documentation posts: Legal guides
-- For emotional posts: Trauma/healing books
-- For communication posts: High-conflict relationship books
-- Track last 20 books recommended, exclude from next selection
-Issue 3: Missing Action Steps
-Problem: Posts are theoretical, not practical
-Solution:
-Add required sections to every post:
-
-### What to Do Right Now (Always include)
-3-5 specific, actionable steps reader can take today
-
-### When This Doesn't Work (Always include)
-Backup strategies, what to try next
-
-### Red Flags This Strategy Isn't Right for Your Situation
-When to try different approach or seek professional help
-Issue 4: Legal Accuracy Concerns
-Problem: Worried about state-specific law variations
-Solution:
-
-Focus on universal principles, not state specifics
-Always include jurisdictional disclaimer
-Use phrases like "in many states" not "the law requires"
-Encourage attorney consultation for specifics
-Link to free legal aid resources by state
-
-Issue 5: Repetitive Post Structure
-Problem: Every post feels samey
-Solution:
-Rotate post structures:
-
-Post 1: Problem → Solution → Steps
-Post 2: Myth-busting format
-Post 3: Script/template heavy
-Post 4: Story/case study approach
-Post 5: Q&A format
-Post 6: Comparison (Strategy A vs B)
-Post 7: Troubleshooting guide
-Post 8: Deep dive on one concept
-Post 9: Quick tips listicle
-Post 10: Mindset shift focus
-
-Cycle through these structures as you rotate through topics.
-
-Success Metrics
-Month 1 Goals
-
-✅ 10 published posts
-✅ 100+ monthly visitors
-✅ 5+ affiliate clicks
-✅ 1+ email signups
-
-Month 3 Goals
-
-✅ 90 published posts (all topics cycled 3x)
-✅ 500+ monthly visitors
-✅ 20+ affiliate clicks
-✅ 50+ email subscribers
-✅ 2-3 social shares per post
-
-Month 6 Goals
-
-✅ 180 published posts
-✅ 2,000+ monthly visitors
-✅ $100+ affiliate revenue
-✅ 200+ email subscribers
-✅ Ranking for 5+ long-tail keywords
-
-Month 12 Goals
-
-✅ 365 published posts
-✅ 10,000+ monthly visitors
-✅ $500+ monthly affiliate revenue
-✅ 1,000+ email subscribers
-✅ First info product launch ($1,000+ revenue)
-✅ Attorney referral partnerships
-
-
-Final Checklist Before Launch
-Technical
-
- All API keys configured
- Database volume attached (won't lose posts)
- Cron job tested and scheduled
- Mobile responsive design verified
- Affiliate links format correctly
- SSL certificate active (https)
-
-Content
-
- All
-DPContinue10 topics loaded in database
-
- Tone matches target audience
- Legal disclaimers on appropriate posts
- Resource links functional
- Books are niche-relevant
-
-Legal/Ethical
-
- "Not legal advice" disclaimers present
- "Not therapy" disclaimers present
- Domestic violence resources linked
- Privacy policy posted
- Amazon affiliate disclosure present
- Contact information available
-
-Marketing
-
+ Cron job configured in hPanel
+ Scheduled for daily posting (9 AM recommended)
+ Email notification enabled for cron
  Google Analytics installed
- Social share buttons present
- Email signup form functional
- Lead magnet created (optional)
- Reddit communities identified for sharing
+ Legal disclaimers on all posts
+ Privacy policy page created
+ Contact page/form created
+
+Week 1 Monitoring
+
+ Check daily that cron runs successfully
+ Review each post for quality/tone
+ Verify no PHP errors in logs
+ Test affiliate links click through
+ Check mobile display on actual devices
+ Monitor Hostinger resource usage
+ Backup database and files
+
+Week 2+ Optimization
+
+ Share first posts in Reddit communities
+ Adjust tone based on feedback
+ Add email signup form
+ Create lead magnet (FU Binder template)
+ Refine book selections
+ Add more topics if needed
+ Review analytics for top posts
 
 
-Your Competitive Advantage
-Why This Blog Will Work:
+Next Steps - Your Action Plan
+This Week:
+Day 1: Setup
 
-Underserved Niche: High-conflict co-parenting content is sparse and often too academic or too angry
-High Intent Audience: These readers are desperate for solutions, not casual browsers
-Evergreen + Urgent: Content stays relevant but audience feels immediate need
-Strong Affiliate Fit: Multiple books, courses, services to recommend naturally
-Expansion Potential: Can build into coaching, products, referrals
-AI Sweet Spot: Established frameworks in training data (grey rock, parallel parenting, family law basics)
-Daily Fresh Content: Automated posting builds authority and SEO over time
-Authentic Value: These posts genuinely help people in crisis
+ Install Cursor
+ Create Claude API account
+ Get Amazon Associate ID
+ Create MySQL database in Hostinger
 
-Most importantly: You've done the hard research upfront with those 10 topics. You're not asking AI to guess what people need - you're directing it to address real, documented pain points.
+Day 2: Build
 
-Next Steps
+ Generate code with Cursor
+ Configure config.php locally
+ Test locally (optional)
+ Upload to Hostinger File Manager
 
-Today: Set up Cursor, create accounts
-This Week: Build and deploy blog
-Week 2: Publish first 7 posts, refine tone
-Week 3: Share in relevant communities, gather feedback
-Month 2: Launch email list with lead magnet
-Month 3: First affiliate revenue, add more topics
-Month 6: Explore info products or coaching
-Month 12: Scale to multi-revenue stream business
+Day 3: Configure
 
-You have everything you need to start. The topics are researched, the process is clear, and the audience is waiting.
-Now build it. 🚀
+ Run install.sql in phpMyAdmin
+ Load 10 topics into database
+ Test manual post generation
+ Verify post displays correctly
+
+Day 4: Automate
+
+ Set up cron job in hPanel
+ Test automated posting
+ Refine tone/content if needed
+ Install Google Analytics
+
+Day 5: Launch
+
+ Publish first real post
+ Share in relevant communities
+ Monitor for errors
+ Create backup
+
+Days 6-7: Iterate
+
+ Review published posts
+ Gather feedback
+ Adjust prompts
+ Plan email strategy
+
+Month 1 Goals:
+
+✅ 30 published posts
+✅ Zero downtime / errors
+✅ 100+ visitors from organic sharing
+✅ 5+ affiliate link clicks
+✅ Email signup form live
+
+Month 2 Goals:
+
+✅ 60 total posts (all topics cycled 2x)
+✅ 500+ monthly visitors
+✅ 50+ email subscribers
+✅ First affiliate commission
+✅ Lead magnet created and converting
+
+Month 3+ Goals:
+
+✅ 90+ total posts
+✅ 2,000+ monthly visitors
+✅ $50-100 affiliate revenue
+✅ 200+ email subscribers
+✅ Plan first info product
+
+
+You're Ready to Launch
+You have everything you need:
+✅ Pre-researched topics (10 high-value topics)
+✅ Hosting configured (Hostinger with domain)
+✅ Clear deployment path (File Manager upload)
+✅ Automation strategy (hPanel cron jobs)
+✅ Monetization plan (Amazon affiliates)
+✅ Content strategy (validated tone & structure)
+The difference between you and someone who never launches:
+You're going to execute in the next 7 days.
+Start with Cursor today. Generate the code. Upload to Hostinger. Test one post. Then automate.
+Your audience is waiting. 🚀
