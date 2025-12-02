@@ -21,23 +21,27 @@ This repository contains a minimal, mobile-first PHP blog that auto-creates post
 6. To initialize locally without cron, run `php init-db.php`.
 
 ## Hostinger (manual upload) notes
-- Keep the repository structure exactly as-is when uploading through the File Manager (folders like `assets/`, `includes/`, `database/` stay at the same level as `index.php`).
+- Keep the repository structure exactly as-is when uploading through the File Manager (folders like `assets/`, `views/`, `database/`, and `app/` stay at the same level as `index.php`).
 - Upload the files into `public_html` or a subfolder such as `public_html/family-law-blog/` so links like `BASE_URL/post/slug` work.
 - Create `config.php` from `config.sample.php` before uploading (or edit it in place) and set your `CRON_SECRET_TOKEN` and `BASE_URL`.
 - Ensure the `database/` directory remains writable (755 is usually sufficient); the `blog.db` file will be created automatically on first run.
 - If you cannot use SSH, you can zip the repo locally, upload the archive via File Manager, and extract it directly in the target directory to preserve the simple structure.
 
 ## File overview
-- `index.php` — homepage listing recent posts.
-- `post.php` — single post view.
-- `cron.php` — generates a post from the next unused topic.
+- `index.php` — thin controller for the homepage listing recent posts.
+- `post.php` — thin controller for the single post view.
+- `cron.php` — controller that generates a post from the next unused topic.
+- `bootstrap.php` — autoloader and shared bootstrap wiring.
 - `config.sample.php` — configuration template (copy to `config.php`).
 - `topics.json` — seed topics used for automatic posts.
+- `app/Services/PostService.php` — business logic for content creation, sanitization, and retrieval.
+- `app/Repositories/PostRepository.php` — persistence layer for posts.
+- `app/Repositories/TopicRepository.php` — persistence layer for topics and seeding.
 - `includes/db.php` — SQLite connection and schema setup.
-- `includes/functions.php` — topic loading, content generation, and helpers.
+- `views/` — view templates that assemble HTML for pages.
 - `assets/css/style.css` — minimal mobile-first styling.
 
 ## Notes
-- Content generation uses deterministic scaffolding in `includes/functions.php`. Swap the `generate_content` logic to call an external model like Claude when credentials are available.
+- Content generation uses deterministic scaffolding in `App\Services\PostService`. Swap the generation logic to call an external model like Claude when credentials are available.
 - If topics run out, add more to `topics.json` or reset the `topics` table.
 - Clean URLs are enabled via `.htaccess` (e.g., `/post/your-slug`), while `post.php?slug=` continues to work if rewriting is disabled.

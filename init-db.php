@@ -1,8 +1,7 @@
 <?php
-require_once __DIR__ . '/config.php';
-require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/bootstrap.php';
 
-date_default_timezone_set(TIMEZONE);
+use App\Services\PostService;
 
 try {
     if (!extension_loaded('sqlite3')) {
@@ -14,7 +13,9 @@ try {
     }
 
     $pdo = get_db();
-    ensure_topics_loaded($pdo);
+    $postService = PostService::build($pdo, __DIR__ . '/topics.json');
+    $postService->ensureTopicsSeeded();
+
     echo "Database initialized at " . DB_PATH . "\n";
     $perms = substr(sprintf('%o', fileperms(DB_PATH)), -4);
     echo "Current permissions: $perms (set to 0644 or 0666 if writes fail)\n";
@@ -23,4 +24,3 @@ try {
     echo "Initialization failed: " . $e->getMessage() . "\n";
     exit(1);
 }
-?>
