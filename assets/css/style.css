@@ -1,158 +1,82 @@
-:root {
-  --bg: #000000;
-  --text: #e9d09b;
-  --accent: #ffd700;
-  --card: #0d1a2e;
-  --muted: #c9c09c;
-  --border: #142033;
-  --accent-soft: rgba(233, 208, 155, 0.12);
-  --navy-dark: #010a1a;
-  --section-dark: #0a0a0a;
-}
-
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
-.text-custom-gold-shadow {
-  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
-}
-.container {
-  width: min(960px, 94%);
-  margin: 0 auto;
-  padding: 1rem 0;
-}
-.site-header {
-  background: var(--section-dark);
-  border-bottom: 1px solid var(--border);
-  padding: 1.5rem 0;
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1);
-}
-.site-header h1 {
-  margin: 0 0 0.35rem;
-  font-size: 1.5rem;
-}
-.site-header a {
-  color: var(--accent);
-  text-decoration: none;
-}
-.tagline {
-  margin: 0;
-  color: var(--muted);
-}
-.posts {
-  display: grid;
-  gap: 1rem;
-  margin: 1rem 0 3rem;
-}
-.post-card, .post {
-  background: var(--card);
-  padding: 1.25rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-  border: 1px solid var(--border);
-}
-.post-card h2, .post h1 {
-  margin: 0.25rem 0 0.5rem;
-  color: #f3e6bf;
-}
-.post-card h2 a,
-.post h1 a {
-  color: var(--accent);
-  text-decoration: none;
-  text-shadow: 0 0 8px rgba(255, 215, 0, 0.35);
-}
-.post-card h2 a:hover,
-.post-card h2 a:focus,
-.post h1 a:hover,
-.post h1 a:focus {
-  color: #ffe166;
-  text-decoration: none;
-}
-.post h2 {
-  color: #e9d09b;
-  font-size: 1.1rem;
-  margin-top: 1.75rem;
-  margin-bottom: 0.5rem;
-}
-.post-card p, .post p {
-  margin: 0.25rem 0 0.75rem;
-}
-.post .content p {
-  margin: 0.65rem 0;
-}
-.post .content ul {
-  padding-left: 1.2rem;
-  color: var(--text);
-}
-.post .content li {
-  margin: 0.35rem 0;
-}
-.read-more {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-}
-.post .content a {
-  color: var(--accent);
-  font-weight: 600;
-}
-.date {
-  color: #a0946f;
-  font-size: 0.9rem;
-}
-.site-footer {
-  background: var(--section-dark);
-  border-top: 1px solid var(--border);
-  padding: 1.5rem 0;
-  margin-top: 2rem;
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-.content {
-  white-space: normal;
-}
-.action-list,
-.script-list,
-.book-list {
-  list-style: disc;
-  padding-left: 1.25rem;
-}
-.book-list li {
-  background: var(--accent-soft);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.75rem;
-  margin: 0.35rem 0;
-}
-.book-list a {
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-}
-.book-note {
-  color: var(--muted);
-  display: block;
-  margin-top: 0.15rem;
-  font-size: 0.95rem;
-}
-.affiliate-note {
-  font-size: 0.95rem;
-  color: var(--muted);
-  margin-bottom: 0.35rem;
-}
-.disclaimer {
-  background: var(--accent-soft);
-  padding: 0.75rem;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  color: var(--text);
-}
-@media (max-width: 640px) {
-  .site-header h1 { font-size: 1.25rem; }
-  .post-card, .post { padding: 1rem; }
-}
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          // Mapping old names to new palette for compatibility
+          'cb-primary': '#FACC15', // Yellow-400
+          'cb-primary-soft': '#FEF08A', // Yellow-200
+          'cb-navy': '#0F172A', // Slate-900
+          'cb-darkBlue': '#020617', // Slate-950
+          'cb-section': '#0F172A',
+          'cb-card': '#1E293B', // Slate-800
+          'cb-text': '#E2E8F0', // Slate-200
+          'cb-muted': '#94A3B8', // Slate-400
+        },
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'], // Switched to sans as per new design
+        },
+        animation: {
+          'in': 'in 0.2s ease-out',
+          'slide-in-from-top-2': 'slideInFromTop 0.2s ease-out',
+          'slide-in-from-bottom-2': 'slideInFromBottom 0.5s ease-out',
+          'fade-in': 'fadeIn 0.5s ease-out',
+        },
+        keyframes: {
+          in: {
+            '0%': { opacity: 0 },
+            '100%': { opacity: 1 },
+          },
+          slideInFromTop: {
+            '0%': { transform: 'translateY(-0.5rem)', opacity: 0 },
+            '100%': { transform: 'translateY(0)', opacity: 1 },
+          },
+          slideInFromBottom: {
+            '0%': { transform: 'translateY(1rem)', opacity: 0 },
+            '100%': { transform: 'translateY(0)', opacity: 1 },
+          },
+          fadeIn: {
+            '0%': { opacity: 0 },
+            '100%': { opacity: 1 },
+          }
+        }
+      },
+    },
+  };
+</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    :root {
+        color-scheme: dark;
+    }
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #020617; /* Slate 950 */
+        color: #E2E8F0; /* Slate 200 */
+    }
+    /* Custom Scrollbar Hiding */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(250, 204, 21, 0.3);
+      border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(250, 204, 21, 0.5);
+    }
+</style>
