@@ -1,0 +1,81 @@
+:root {
+  --bg: #f8f9fb;
+  --text: #1f2933;
+  --accent: #365f91;
+  --card: #ffffff;
+  --muted: #6b7280;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+.container {
+  width: min(960px, 94%);
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+.site-header {
+  background: var(--card);
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1.5rem 0;
+}
+.site-header h1 {
+  margin: 0 0 0.35rem;
+  font-size: 1.5rem;
+}
+.site-header a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.tagline {
+  margin: 0;
+  color: var(--muted);
+}
+.posts {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0 3rem;
+}
+.post-card, .post {
+  background: var(--card);
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  border: 1px solid #e5e7eb;
+}
+.post-card h2, .post h1 {
+  margin: 0.25rem 0 0.5rem;
+  color: #1f2933;
+}
+.post-card p, .post p {
+  margin: 0.25rem 0 0.75rem;
+}
+.read-more {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.date {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.site-footer {
+  background: var(--card);
+  border-top: 1px solid #e5e7eb;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.content {
+  white-space: pre-wrap;
+}
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.25rem; }
+  .post-card, .post { padding: 1rem; }
+}
