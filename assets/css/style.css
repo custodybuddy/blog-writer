@@ -1,11 +1,13 @@
 :root {
-  --bg: #f8f9fb;
-  --text: #1f2933;
-  --accent: #365f91;
-  --card: #ffffff;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --accent-soft: #e8effa;
+  --bg: #000000;
+  --text: #e9d09b;
+  --accent: #ffd700;
+  --card: #0d1a2e;
+  --muted: #c9c09c;
+  --border: #142033;
+  --accent-soft: rgba(233, 208, 155, 0.12);
+  --navy-dark: #010a1a;
+  --section-dark: #0a0a0a;
 }
 
 * { box-sizing: border-box; }
@@ -16,15 +18,19 @@ body {
   color: var(--text);
   line-height: 1.6;
 }
+.text-custom-gold-shadow {
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
 .container {
   width: min(960px, 94%);
   margin: 0 auto;
   padding: 1rem 0;
 }
 .site-header {
-  background: var(--card);
+  background: var(--section-dark);
   border-bottom: 1px solid var(--border);
   padding: 1.5rem 0;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1);
 }
 .site-header h1 {
   margin: 0 0 0.35rem;
@@ -47,15 +53,15 @@ body {
   background: var(--card);
   padding: 1.25rem;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
   border: 1px solid var(--border);
 }
 .post-card h2, .post h1 {
   margin: 0.25rem 0 0.5rem;
-  color: #1f2933;
+  color: #f3e6bf;
 }
 .post h2 {
-  color: #223554;
+  color: #e9d09b;
   font-size: 1.1rem;
   margin-top: 1.75rem;
   margin-bottom: 0.5rem;
@@ -78,12 +84,16 @@ body {
   text-decoration: none;
   font-weight: 600;
 }
+.post .content a {
+  color: var(--accent);
+  font-weight: 600;
+}
 .date {
-  color: var(--muted);
+  color: #a0946f;
   font-size: 0.9rem;
 }
 .site-footer {
-  background: var(--card);
+  background: var(--section-dark);
   border-top: 1px solid var(--border);
   padding: 1.5rem 0;
   margin-top: 2rem;
@@ -127,7 +137,7 @@ body {
   padding: 0.75rem;
   border-radius: 8px;
   border: 1px solid var(--border);
-  color: #1f2933;
+  color: var(--text);
 }
 @media (max-width: 640px) {
   .site-header h1 { font-size: 1.25rem; }
