@@ -9,9 +9,26 @@ function get_db(): PDO {
         }
         $dir = dirname(DB_PATH);
         if (!is_dir($dir)) {
-            if (!mkdir($dir, 0775, true) && !is_dir($dir)) {
+            if (!mkdir($dir, 0755, true) && !is_dir($dir)) {
                 throw new RuntimeException('Failed to create database directory: ' . $dir);
             }
+        }
+
+        if (!chmod($dir, 0755)) {
+            error_log('Could not set permissions on database directory: ' . $dir);
+        }
+
+        if (!file_exists(DB_PATH)) {
+            $handle = @fopen(DB_PATH, 'c');
+            if ($handle === false) {
+                throw new RuntimeException('Unable to create SQLite database file at ' . DB_PATH . '. Check directory permissions.');
+            }
+            fclose($handle);
+            @chmod(DB_PATH, 0644);
+        }
+
+        if (!is_writable(DB_PATH)) {
+            throw new RuntimeException('Database file is not writable: ' . DB_PATH . '. Ensure it is 644 or 666 on shared hosting.');
         }
 
         try {
@@ -20,7 +37,9 @@ function get_db(): PDO {
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             ]);
             $pdo->exec('PRAGMA foreign_keys = ON;');
+            $pdo->exec('PRAGMA busy_timeout = 5000;');
             initialize_schema($pdo);
+            @chmod(DB_PATH, 0644);
         } catch (PDOException $e) {
             error_log('Database connection failed: ' . $e->getMessage());
             throw new RuntimeException('Unable to connect to the database. Please check DB_PATH permissions.');

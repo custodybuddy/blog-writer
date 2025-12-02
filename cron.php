@@ -21,7 +21,7 @@ if (!$topic) {
 $post = create_post_from_topic($pdo, $topic);
 if ($post) {
     echo 'Post created: ' . htmlspecialchars($post['title']) . "\n";
-    echo BASE_URL . 'post.php?slug=' . urlencode($post['slug']);
+    echo BASE_URL . 'post/' . urlencode($post['slug']);
 } else {
     http_response_code(500);
     echo 'Failed to create post.';

@@ -1,0 +1,8 @@
+# Prevent web access to the SQLite database
+<Files "blog.db">
+    Require all denied
+</Files>
+
+<FilesMatch "\.db$">
+    Require all denied
+</FilesMatch>

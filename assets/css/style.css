@@ -4,6 +4,8 @@
   --accent: #365f91;
   --card: #ffffff;
   --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent-soft: #e8effa;
 }
 
 * { box-sizing: border-box; }
@@ -21,7 +23,7 @@ body {
 }
 .site-header {
   background: var(--card);
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--border);
   padding: 1.5rem 0;
 }
 .site-header h1 {
@@ -46,14 +48,30 @@ body {
   padding: 1.25rem;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border);
 }
 .post-card h2, .post h1 {
   margin: 0.25rem 0 0.5rem;
   color: #1f2933;
 }
+.post h2 {
+  color: #223554;
+  font-size: 1.1rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
 .post-card p, .post p {
   margin: 0.25rem 0 0.75rem;
+}
+.post .content p {
+  margin: 0.65rem 0;
+}
+.post .content ul {
+  padding-left: 1.2rem;
+  color: var(--text);
+}
+.post .content li {
+  margin: 0.35rem 0;
 }
 .read-more {
   color: var(--accent);
@@ -66,14 +84,50 @@ body {
 }
 .site-footer {
   background: var(--card);
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--border);
   padding: 1.5rem 0;
   margin-top: 2rem;
   color: var(--muted);
   font-size: 0.95rem;
 }
 .content {
-  white-space: pre-wrap;
+  white-space: normal;
+}
+.action-list,
+.script-list,
+.book-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.book-list li {
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin: 0.35rem 0;
+}
+.book-list a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.book-note {
+  color: var(--muted);
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.95rem;
+}
+.affiliate-note {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+.disclaimer {
+  background: var(--accent-soft);
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: #1f2933;
 }
 @media (max-width: 640px) {
   .site-header h1 { font-size: 1.25rem; }
