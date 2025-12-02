@@ -20,6 +20,13 @@ This repository contains a minimal, mobile-first PHP blog that auto-creates post
 5. Trigger a post: visit `BASE_URL/cron.php?token=YOUR_TOKEN`.
 6. To initialize locally without cron, run `php init-db.php`.
 
+## Hostinger (manual upload) notes
+- Keep the repository structure exactly as-is when uploading through the File Manager (folders like `assets/`, `includes/`, `database/` stay at the same level as `index.php`).
+- Upload the files into `public_html` or a subfolder such as `public_html/family-law-blog/` so links like `BASE_URL/post/slug` work.
+- Create `config.php` from `config.sample.php` before uploading (or edit it in place) and set your `CRON_SECRET_TOKEN` and `BASE_URL`.
+- Ensure the `database/` directory remains writable (755 is usually sufficient); the `blog.db` file will be created automatically on first run.
+- If you cannot use SSH, you can zip the repo locally, upload the archive via File Manager, and extract it directly in the target directory to preserve the simple structure.
+
 ## File overview
 - `index.php` — homepage listing recent posts.
 - `post.php` — single post view.
