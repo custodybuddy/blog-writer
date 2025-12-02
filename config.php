@@ -3,7 +3,7 @@
 const DB_PATH = __DIR__ . '/data/blog.db';
 
 // Public base URL for links (include trailing slash)
-const BASE_URL = 'http://localhost:8000/';
+const BASE_URL = 'https://custodybuddy.com/family-law-blog/';
 
 // Secret token required to trigger cron.php
 const CRON_SECRET_TOKEN = 'dev-token-change-me-32chars';
