@@ -8,7 +8,7 @@ ensure_topics_loaded($pdo);
 $posts = latest_posts($pdo);
 include __DIR__ . '/includes/header.php';
 ?>
-<section class="posts">
+<section class="posts" id="latest-posts">
     <?php if (!$posts): ?>
         <article class="post-card">
             <h2>No posts yet</h2>
@@ -24,5 +24,16 @@ include __DIR__ . '/includes/header.php';
             </article>
         <?php endforeach; ?>
     <?php endif; ?>
+</section>
+<section class="about" id="about">
+    <div class="about-card">
+        <h2>How to navigate CustodyBuddy</h2>
+        <p>Start with the newest posts for timely scripts and responses. Use the "Latest posts" link above to jump straight into the feed, or return home any time via the site name.</p>
+        <p>If you are new here, read the most recent guide first—it contains the freshest templates and safety language. When you are ready to dig deeper, the archives stay accessible through the homepage cards.</p>
+        <div class="about-actions">
+            <a class="cb-btn cb-btn-primary" href="#latest-posts">Jump to posts</a>
+            <a class="cb-btn cb-btn-secondary" href="<?php echo BASE_URL; ?>">Back to homepage</a>
+        </div>
+    </div>
 </section>
 <?php include __DIR__ . '/includes/footer.php'; ?>
