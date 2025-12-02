@@ -6,7 +6,7 @@ const DB_PATH = __DIR__ . '/data/blog.db';
 const BASE_URL = 'http://localhost:8000/';
 
 // Secret token required to trigger cron.php
-const CRON_SECRET_TOKEN = 'dev-token-change-me-32chars';
+const CRON_SECRET_TOKEN = 'A7F3kP9XQ2mD6R8bEJZNYw4UHaC5LTSV';
 
 // Site settings
 const SITE_NAME = 'Custody Buddy Blog';
