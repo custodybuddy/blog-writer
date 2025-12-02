@@ -18,7 +18,7 @@ include __DIR__ . '/includes/header.php';
         <p class="date"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></p>
         <h1><?php echo htmlspecialchars($post['title']); ?></h1>
         <div class="content">
-            <?php echo strip_tags($post['content'], '<p><h2><h3><ul><ol><li><strong><em><br><a><span>'); ?>
+            <?php echo sanitize_post_content($post['content']); ?>
         </div>
     </article>
 <?php endif; ?>

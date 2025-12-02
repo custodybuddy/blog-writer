@@ -63,6 +63,77 @@ function build_summary(string $content): string {
     return rtrim($snippet) . '…';
 }
 
+function sanitize_post_content(string $html): string {
+    $allowedTags = [
+        'p', 'h2', 'h3', 'ul', 'ol', 'li', 'strong', 'em', 'br', 'a', 'span', 'div', 'section', 'figure', 'figcaption',
+    ];
+
+    $allowedAttributes = [
+        '*' => ['class'],
+        'a' => ['href', 'title', 'target', 'rel', 'class'],
+    ];
+
+    $allowedSchemes = ['http', 'https', 'mailto', ''];
+
+    $dom = new DOMDocument();
+    $previous = libxml_use_internal_errors(true);
+    $dom->loadHTML('<div>' . $html . '</div>', LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD | LIBXML_NOERROR | LIBXML_NOWARNING);
+    libxml_clear_errors();
+    libxml_use_internal_errors($previous);
+
+    $container = $dom->documentElement;
+
+    $sanitizeNode = function (DOMNode $node) use (&$sanitizeNode, $allowedTags, $allowedAttributes, $allowedSchemes): void {
+        foreach (iterator_to_array($node->childNodes) as $child) {
+            if ($child instanceof DOMComment) {
+                $node->removeChild($child);
+                continue;
+            }
+
+            if ($child instanceof DOMElement) {
+                $tag = strtolower($child->tagName);
+                if (!in_array($tag, $allowedTags, true)) {
+                    while ($child->hasChildNodes()) {
+                        $node->insertBefore($child->firstChild, $child);
+                    }
+                    $node->removeChild($child);
+                    continue;
+                }
+
+                $allowed = array_unique(array_merge($allowedAttributes['*'] ?? [], $allowedAttributes[$tag] ?? []));
+                foreach (iterator_to_array($child->attributes) as $attribute) {
+                    if (!in_array($attribute->name, $allowed, true)) {
+                        $child->removeAttributeNode($attribute);
+                    }
+                }
+
+                if ($child->hasAttribute('href')) {
+                    $href = trim($child->getAttribute('href'));
+                    $scheme = strtolower((string) parse_url($href, PHP_URL_SCHEME));
+                    if ($scheme !== '' && !in_array($scheme, $allowedSchemes, true)) {
+                        $child->removeAttribute('href');
+                    }
+
+                    if (stripos($href, 'javascript:') === 0) {
+                        $child->removeAttribute('href');
+                    }
+                }
+
+                $sanitizeNode($child);
+            }
+        }
+    };
+
+    $sanitizeNode($container);
+
+    $cleanHtml = '';
+    foreach ($container->childNodes as $child) {
+        $cleanHtml .= $dom->saveHTML($child);
+    }
+
+    return $cleanHtml;
+}
+
 function select_affiliate_books(string $topicTitle): array {
     $catalog = [
         ['title' => 'BIFF for Coparent Communication', 'asin' => '1950057053', 'focus' => 'communication scripts'],
