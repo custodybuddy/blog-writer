@@ -36,4 +36,85 @@
     event.preventDefault();
     scrollToTarget(target, hash);
   });
+
+  const filterInput = document.querySelector('[data-filter-posts]');
+  const clearButtons = document.querySelectorAll('[data-clear-filter]');
+
+  if (filterInput) {
+    const cards = Array.from(document.querySelectorAll('[data-post-card]'));
+    const emptyState = document.querySelector('[data-no-results]');
+    const resultsCount = document.querySelector('[data-results-count]');
+    const totalCount = document.querySelector('[data-post-count]');
+    const total = cards.length;
+
+    if (totalCount) {
+      totalCount.textContent = String(total);
+    }
+
+    const applyFilter = () => {
+      const query = filterInput.value.trim().toLowerCase();
+      let matches = 0;
+
+      cards.forEach((card) => {
+        const searchText = card.dataset.searchText || card.textContent;
+        const isMatch = !query || searchText.toLowerCase().includes(query);
+        card.hidden = !isMatch;
+        if (isMatch) matches += 1;
+      });
+
+      if (resultsCount) {
+        resultsCount.textContent = String(matches);
+      }
+
+      if (emptyState) {
+        emptyState.hidden = matches !== 0;
+      }
+    };
+
+    filterInput.addEventListener('input', applyFilter);
+    filterInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        filterInput.value = '';
+        applyFilter();
+      }
+    });
+
+    clearButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        filterInput.value = '';
+        applyFilter();
+        filterInput.focus({ preventScroll: true });
+      });
+    });
+
+    applyFilter();
+  }
+
+  const copyButton = document.querySelector('[data-copy-link]');
+  const status = document.querySelector('[data-copy-status]');
+
+  if (copyButton) {
+    const defaultStatus = status?.textContent || '';
+
+    copyButton.addEventListener('click', async () => {
+      if (!navigator.clipboard) {
+        copyButton.dataset.state = 'error';
+        if (status) status.textContent = 'Copy not supported in this browser.';
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        copyButton.dataset.state = 'success';
+        if (status) status.textContent = 'Link copied—send it to someone who needs it.';
+        setTimeout(() => {
+          copyButton.dataset.state = '';
+          if (status) status.textContent = defaultStatus;
+        }, 2400);
+      } catch (error) {
+        copyButton.dataset.state = 'error';
+        if (status) status.textContent = 'Copy unavailable—use your browser share menu.';
+      }
+    });
+  }
 })();
