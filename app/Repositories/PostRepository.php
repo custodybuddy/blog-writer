@@ -31,7 +31,10 @@ class PostRepository
 
     public function slugExists(string $slug): bool
     {
-        return $this->findBySlug($slug) !== null;
+        $stmt = $this->pdo->prepare('SELECT 1 FROM posts WHERE slug = :slug LIMIT 1');
+        $stmt->execute([':slug' => $slug]);
+
+        return (bool) $stmt->fetchColumn();
     }
 
     public function create(array $data, DateTimeZone $timezone): array

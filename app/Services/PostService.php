@@ -122,7 +122,10 @@ class PostService
             return null;
         }
 
-        return $this->createPostFromTopic($topic);
+        $post = $this->createPostFromTopic($topic);
+        $this->topics->markAsUsed((int) $topic['id']);
+
+        return $post;
     }
 
     private function createPostFromTopic(array $topic): array

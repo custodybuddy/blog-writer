@@ -41,9 +41,12 @@ class TopicRepository
             return null;
         }
 
-        $markUsed = $this->pdo->prepare('UPDATE topics SET used = 1 WHERE id = :id');
-        $markUsed->execute([':id' => $topic['id']]);
-
         return $topic;
+    }
+
+    public function markAsUsed(int $id): void
+    {
+        $markUsed = $this->pdo->prepare('UPDATE topics SET used = 1 WHERE id = :id');
+        $markUsed->execute([':id' => $id]);
     }
 }
