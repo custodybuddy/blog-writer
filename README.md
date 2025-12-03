@@ -20,6 +20,22 @@ This repository contains a minimal, mobile-first PHP blog that auto-creates post
 5. Trigger a post: visit `BASE_URL/cron.php?token=YOUR_TOKEN`.
 6. To initialize locally without cron, run `php init-db.php`.
 
+### Local development workflow
+- Install PHP 8.1+ with the SQLite extension enabled (verify with `php -m | grep sqlite`).
+- Seed topics and the database locally with `php init-db.php`; re-run the command any time you need a clean database.
+- Run the built-in server in one terminal tab (`php -S localhost:8000 -t .`) and browse to `http://localhost:8000/`.
+- Use `php cron.php token` locally to generate a post without the HTTP call; the script accepts the token as either the `token` query string or a positional argument.
+
+### Scheduling post generation
+- Cron-friendly invocation: `*/5 * * * * /usr/bin/php /path/to/cron.php YOUR_SECRET_TOKEN >/dev/null 2>&1`.
+- The cron script is idempotent per topic: it will skip generating a new post if a topic is still marked as unused.
+- When testing against a staging server, prefer a short schedule (e.g., every 5 minutes) and then switch to daily for production.
+
+### Troubleshooting tips
+- If you see `unable to open database file`, ensure the `database/` directory is writable by the web server user and that `DB_PATH` points to an absolute path.
+- If posts fail to generate, confirm the `CRON_SECRET_TOKEN` matches between `config.php` and your request. The script will return HTTP 401 on a mismatch.
+- When deploying behind HTTPS, set `BASE_URL` to the full canonical URL so the generated links in RSS or emails remain correct.
+
 ## Hostinger (manual upload) notes
 - Keep the repository structure exactly as-is when uploading through the File Manager (folders like `assets/`, `views/`, `database/`, and `app/` stay at the same level as `index.php`).
 - Upload the files into `public_html` or a subfolder such as `public_html/family-law-blog/` so links like `BASE_URL/post/slug` work.
