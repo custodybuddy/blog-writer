@@ -280,11 +280,30 @@ class PostService
     private function padContentToWordCount(string $content, int $minimumWords): string
     {
         $wordCount = str_word_count(strip_tags($content));
-        $extraParagraph = '<p>Progress in high-conflict cases is measured in steadiness, not the other parent changing. Each calm, documented response builds credibility with the court and gives your child a predictable anchor in the chaos.</p>';
+        $fillerParagraphs = [
+            '<p>Progress in high-conflict cases is measured in steadiness, not the other parent changing. Each calm, documented response builds credibility with the court and gives your child a predictable anchor in the chaos.</p>',
+            '<p>Judges and evaluators look for consistent, child-focused behavior over time. Documenting patterns and answering only what is necessary shows you are prioritizing stability over drama.</p>',
+            '<p>Parallel parenting is not giving up; it is choosing routines and communication structures that protect your child when cooperation is impossible.</p>',
+            '<p>Short, timely responses paired with clear records reduce the chances of misquoting and keep the focus on the parenting plan instead of personal attacks.</p>',
+            '<p>Even small rituals—packing the same snack for exchanges, confirming times in one place—signal predictability to your child and lower their stress.</p>',
+            '<p>Set reminders to review your log weekly so you catch gaps, note improvements, and adjust scripts before the next difficult exchange.</p>',
+        ];
+
+        $index = 0;
+        $lastParagraph = null;
 
         while ($wordCount < $minimumWords) {
-            $content .= "\n\n" . $extraParagraph;
+            $paragraph = $fillerParagraphs[$index % count($fillerParagraphs)];
+
+            if ($paragraph === $lastParagraph && count($fillerParagraphs) > 1) {
+                $index++;
+                $paragraph = $fillerParagraphs[$index % count($fillerParagraphs)];
+            }
+
+            $content .= "\n\n" . $paragraph;
             $wordCount = str_word_count(strip_tags($content));
+            $lastParagraph = $paragraph;
+            $index++;
         }
 
         return $content;
