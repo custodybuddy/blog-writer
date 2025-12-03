@@ -11,9 +11,15 @@
     </article>
 <?php else: ?>
     <article class="post">
-        <p class="date"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></p>
-        <h1><?php echo htmlspecialchars($post['title']); ?></h1>
-        <div class="content">
+        <header class="post-hero">
+            <p class="date eyebrow"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></p>
+            <h1><?php echo htmlspecialchars($post['title']); ?></h1>
+            <?php if (!empty($post['summary'])): ?>
+                <p class="post-summary"><?php echo htmlspecialchars($post['summary']); ?></p>
+            <?php endif; ?>
+        </header>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="content post-body">
             <?php echo $sanitizedContent; ?>
         </div>
     </article>
