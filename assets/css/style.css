@@ -141,7 +141,38 @@ main.container{padding:40px 0 56px;}
 .tagline{margin:0;color:var(--cb-text-muted);font-weight:500;max-width:650px;}
 
 /* ---------- Grid ---------- */
-.posts{
+.section-block{margin:10px 0 24px;}
+
+.section-heading{margin:0 0 18px;max-width:840px;}
+
+.section-heading h2{margin:4px 0 8px;font-size:clamp(1.6rem,1.2vw + 1.2rem,2rem);}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:4px 10px;
+  font-size:.9rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--cb-text-heading);
+  background:rgba(255,215,0,0.08);
+  border:1px solid rgba(255,215,0,0.18);
+  border-radius:999px;
+}
+
+.eyebrow::before{
+  content:"";
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--cb-accent-primary),rgba(255,215,0,0.35));
+  box-shadow:0 0 0 5px rgba(255,215,0,0.06);
+}
+
+.lede{margin:0;color:var(--cb-text-muted);font-size:1.05rem;line-height:1.7;}
+
+.posts-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:20px;
@@ -164,15 +195,15 @@ main.container{padding:40px 0 56px;}
 }
 
 /* ---------- Titles ---------- */
-.post-card h2,.post h1,.post h2{
+.post-card h2,.post h1,.post h2,.card-title{
   margin-top:.2rem;
   margin-bottom:.4rem;
   letter-spacing:-.01em;
   color:var(--cb-text-heading);
 }
 
-.post h1{font-size:clamp(1.8rem,2vw + 1rem,2.3rem);} 
-.post-card h2{font-size:1.25rem;}
+.post h1{font-size:clamp(1.8rem,2vw + 1rem,2.3rem);line-height:1.2;}
+.post-card h2,.card-title{font-size:1.25rem;}
 
 /* ---------- Metadata ---------- */
 .date{
@@ -184,12 +215,36 @@ main.container{padding:40px 0 56px;}
 }
 
 /* ---------- Body Copy ---------- */
-.post-card p,.post p{margin-top:.2rem;margin-bottom:.8rem;color:var(--cb-text-muted);} 
+.post-card p,.post p{margin-top:.2rem;margin-bottom:.8rem;color:var(--cb-text-muted);}
 .post .content{color:var(--cb-text-body);}
 
-.post .content h2,.post .content h3{color:var(--cb-text-heading);margin-top:1.4rem;} 
+.post .content h2,.post .content h3{color:var(--cb-text-heading);margin-top:1.4rem;}
 
-.post .content ul,.post .content ol{padding-left:1.2rem;color:var(--cb-text-muted);} 
+.post .content ul,.post .content ol{padding-left:1.2rem;color:var(--cb-text-muted);}
+
+.card-summary{color:var(--cb-text-body);line-height:1.6;}
+
+.post-hero{
+  position:relative;
+  padding:8px 8px 12px;
+  background:linear-gradient(135deg,rgba(255,215,0,0.08),rgba(3,1,0,0));
+  border-radius:14px;
+  border:1px solid rgba(255,215,0,0.14);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.post-summary{margin:10px 0 0;color:var(--cb-text-body);font-size:1.05rem;line-height:1.7;}
+
+.post-body{margin-top:12px;line-height:1.8;font-size:1.02rem;}
+
+.post-body p{color:var(--cb-text-body);}
+
+.divider{
+  height:1px;
+  margin:14px 0 12px;
+  background:linear-gradient(90deg,rgba(255,215,0,0),rgba(255,215,0,0.35),rgba(255,215,0,0));
+  border-radius:999px;
+}
 
 /* ---------- CTA Button ---------- */
 .read-more{

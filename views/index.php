@@ -1,20 +1,27 @@
 <?php include __DIR__ . '/partials/header.php'; ?>
-<section class="posts" id="latest-posts">
-    <?php if (!$posts): ?>
-        <article class="post-card">
-            <h2>No posts yet</h2>
-            <p>The cron job will create a new post automatically. You can also trigger it manually via cron.php.</p>
-        </article>
-    <?php else: ?>
-        <?php foreach ($posts as $post): ?>
+<section class="section-block" id="latest-posts">
+    <div class="section-heading">
+        <p class="eyebrow">Latest posts</p>
+        <h2>Fresh scripts and response templates</h2>
+        <p class="lede">A curated stream of prompts that help you de-escalate, document, and keep co-parenting plans on track.</p>
+    </div>
+    <div class="posts-grid">
+        <?php if (!$posts): ?>
             <article class="post-card">
-                <p class="date"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></p>
-                <h2><a href="<?php echo BASE_URL . 'post/' . urlencode($post['slug']); ?>"><?php echo htmlspecialchars($post['title']); ?></a></h2>
-                <p><?php echo htmlspecialchars($post['summary']); ?></p>
-                <a class="read-more" href="<?php echo BASE_URL . 'post/' . urlencode($post['slug']); ?>">Read full post</a>
+                <h2>No posts yet</h2>
+                <p>The cron job will create a new post automatically. You can also trigger it manually via cron.php.</p>
             </article>
-        <?php endforeach; ?>
-    <?php endif; ?>
+        <?php else: ?>
+            <?php foreach ($posts as $post): ?>
+                <article class="post-card">
+                    <p class="date eyebrow"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></p>
+                    <h3 class="card-title"><a href="<?php echo BASE_URL . 'post/' . urlencode($post['slug']); ?>"><?php echo htmlspecialchars($post['title']); ?></a></h3>
+                    <p class="card-summary"><?php echo htmlspecialchars($post['summary']); ?></p>
+                    <a class="read-more" href="<?php echo BASE_URL . 'post/' . urlencode($post['slug']); ?>">Read full post</a>
+                </article>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
 </section>
 <section class="about" id="about">
     <div class="about-card">
