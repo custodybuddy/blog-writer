@@ -23,8 +23,8 @@
             </ul>
         </nav>
         <div class="nav-actions">
-            <a class="cb-btn cb-btn-primary" href="#latest-posts">Start reading</a>
-            <a class="cb-btn cb-btn-secondary" href="#about">What to expect</a>
+            <a class="nav-cta" href="#latest-posts">Start reading</a>
+            <a class="nav-cta" href="#about">What to expect</a>
         </div>
     </div>
     <div class="container header-highlight">
