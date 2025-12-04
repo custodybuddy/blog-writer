@@ -6,19 +6,59 @@
         <p class="lede">A curated stream of prompts that help you de-escalate, document, and keep co-parenting plans on track.</p>
     </div>
     <?php if ($posts): ?>
+        <?php
+        $topicNames = [];
+        foreach ($posts as $post) {
+            if (!empty($post['topic_title'])) {
+                $topicNames[] = $post['topic_title'];
+            }
+        }
+        $topicNames = array_values(array_unique($topicNames));
+        sort($topicNames, SORT_NATURAL | SORT_FLAG_CASE);
+        ?>
         <div class="posts-toolbar" aria-label="Post controls">
             <div class="toolbar-stat">
                 <p class="stat-label">Post library</p>
-                <p class="stat-value" aria-live="polite"><span data-results-count><?php echo count($posts); ?></span> of <span data-post-count><?php echo count($posts); ?></span> ready</p>
-                <p class="stat-caption">Use the filter to jump straight to a template you need.</p>
+                <p class="stat-value" aria-live="polite">
+                    Showing <span data-results-count><?php echo count($posts); ?></span> of <span data-post-count><?php echo count($posts); ?></span>
+                </p>
+                <p class="stat-caption">Use topic tabs or search to jump straight to the right template.</p>
             </div>
-            <div class="toolbar-search">
-                <label for="post-filter" class="sr-only">Filter posts by keyword</label>
-                <div class="search-input">
-                    <input id="post-filter" type="search" name="filter" placeholder="Filter by topic, tone, or keyword" data-filter-posts>
-                    <button type="button" class="cb-btn cb-btn-secondary" data-clear-filter>Clear</button>
+            <div class="toolbar-filters">
+                <div class="toolbar-search filter-card">
+                    <div class="filter-heading">
+                        <p class="filter-label">Search the library</p>
+                        <p class="filter-caption">Find titles, tone cues, or topics in one step.</p>
+                    </div>
+                    <div class="search-input">
+                        <input id="post-filter" type="search" name="filter" placeholder="Search posts by keyword, tone, or topic" data-post-search>
+                        <button type="button" class="cb-btn cb-btn-secondary" data-clear-filter>Clear</button>
+                    </div>
+                    <p class="search-hint">Filters update instantly — press Esc to clear.</p>
                 </div>
-                <p class="search-hint">Live filtering — press Esc to clear and show everything again.</p>
+                <div class="topic-filter filter-card">
+                    <div class="filter-heading">
+                        <p class="filter-label">Browse by topic</p>
+                        <p class="filter-caption">Tap a tab or pick from the dropdown on mobile.</p>
+                    </div>
+                    <div class="topic-tabs" role="tablist" aria-label="Filter posts by topic">
+                        <button type="button" class="topic-tab is-active" role="tab" aria-selected="true" data-topic-tab data-topic-value="all">All</button>
+                        <?php foreach ($topicNames as $topic): ?>
+                            <?php $topicValue = strtolower($topic); ?>
+                            <button type="button" class="topic-tab" role="tab" aria-selected="false" data-topic-tab data-topic-value="<?php echo htmlspecialchars($topicValue); ?>">
+                                <?php echo htmlspecialchars($topic); ?>
+                            </button>
+                        <?php endforeach; ?>
+                    </div>
+                    <label class="sr-only" for="topic-select">Choose a topic</label>
+                    <select id="topic-select" class="topic-select" data-topic-select aria-label="Choose a topic">
+                        <option value="all" selected>All topics</option>
+                        <?php foreach ($topicNames as $topic): ?>
+                            <?php $topicValue = strtolower($topic); ?>
+                            <option value="<?php echo htmlspecialchars($topicValue); ?>"><?php echo htmlspecialchars($topic); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
             </div>
         </div>
     <?php endif; ?>
@@ -30,10 +70,19 @@
             </article>
         <?php else: ?>
             <?php foreach ($posts as $post): ?>
-                <article class="post-card" data-post-card data-search-text="<?php echo htmlspecialchars(strtolower($post['title'] . ' ' . $post['summary'] . ' ' . $post['topic_title'])); ?>">
+                <article class="post-card" data-post-card data-topic="<?php echo htmlspecialchars(strtolower($post['topic_title'] ?? '')); ?>" data-search-text="<?php echo htmlspecialchars(strtolower($post['title'] . ' ' . $post['summary'] . ' ' . $post['topic_title'])); ?>">
                     <p class="date eyebrow"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></p>
                     <h3 class="card-title"><a href="<?php echo BASE_URL . 'post/' . urlencode($post['slug']); ?>"><?php echo htmlspecialchars($post['title']); ?></a></h3>
-                    <p class="card-summary"><?php echo htmlspecialchars($post['summary']); ?></p>
+                    <?php if (!empty($post['summary'])): ?>
+                        <p class="card-subhead"><?php echo htmlspecialchars($post['summary']); ?></p>
+                    <?php endif; ?>
+                    <p class="card-summary">
+                        <?php if (!empty($post['topic_title'])): ?>
+                            Covers <?php echo htmlspecialchars($post['topic_title']); ?> — open to see tone cues, boundaries, and documentation notes.
+                        <?php else: ?>
+                            A ready-to-use script with tone cues and documentation notes inside.
+                        <?php endif; ?>
+                    </p>
                     <?php if (!empty($post['topic_title'])): ?>
                         <p class="card-topic" aria-label="Topic">Topic: <?php echo htmlspecialchars($post['topic_title']); ?></p>
                     <?php endif; ?>

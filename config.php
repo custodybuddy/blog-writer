@@ -11,8 +11,8 @@ define('DB_PATH_RELATIVE', 'database/blog.db');
 define('DB_PATH_ABSOLUTE', dirname(__FILE__) . '/database/blog.db');
 define('DB_PATH', DB_PATH_ABSOLUTE); // Primary path used by the app
 
-// API Keys
-define('CLAUDE_API_KEY', 'sk-ant-your-key-here');
+// API Keys (load sensitive values from environment; keep this file free of secrets)
+define('CLAUDE_API_KEY', getenv('CLAUDE_API_KEY') ?: '');
 define('AMAZON_AFFILIATE_ID', 'custodybuddy-20');
 
 // Security
