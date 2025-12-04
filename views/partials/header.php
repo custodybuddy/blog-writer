@@ -30,11 +30,10 @@
     <div class="container header-highlight">
         <div class="highlight-copy">
             <p class="eyebrow">Practical templates</p>
-            <h2 class="highlight-title">Stop reacting—respond with language that de-escalates.</h2>
+            <h2 class="highlight-title">Stop reacting—respond with language that de-escalates</h2>
             <p class="highlight-lede">CustodyBuddy delivers short scripts, response templates, and cues you can use right now to keep documentation clear and conversations calm.</p>
             <div class="page-nav">
                 <a class="cb-btn cb-btn-primary" href="#latest-posts">Browse the feed</a>
-                <a class="cb-btn cb-btn-ghost" href="#about">See how it works</a>
             </div>
         </div>
         <div class="highlight-meta">
