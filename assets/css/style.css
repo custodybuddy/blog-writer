@@ -239,8 +239,8 @@ main.container{padding:40px 0 56px;}
 
 .posts-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:24px;
 }
 
 .posts-toolbar{
